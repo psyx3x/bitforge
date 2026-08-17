@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BitForge — Informática, IA y Tecnología</title>
+<meta name="description" content="Web sobre informática, Linux, Flipper Zero, IA, tutoriales para principiantes y novedades de tecnología." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="iaSparks"></canvas>
+<canvas id="iaSmoke"></canvas>
+
+<!-- ===== NAV ===== -->
+<header class="nav" id="nav">
+  <a href="#hero" class="brand">
+    <span class="brand-mark">&lt;/&gt;</span> BitForge
+  </a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#hero">Inicio</a>
+    <a href="#temas">Temas</a>
+    <span class="nav-ia" id="navLinux">
+      <a href="#linux" class="nav-ia-trigger" id="navLinuxTrigger">Linux</a>
+      <span class="ia-dropdown" id="linuxDropdown">
+        <span class="ia-arrow"></span>
+        <a class="ia-item" href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">Kali Linux</a>
+        <a class="ia-item" href="https://www.parrotsec.org/" target="_blank" rel="noopener noreferrer">Parrot Security</a>
+        <a class="ia-item" href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer">Ubuntu</a>
+        <a class="ia-item" href="https://www.debian.org/" target="_blank" rel="noopener noreferrer">Debian</a>
+        <a class="ia-item" href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer">Linux Mint</a>
+        <a class="ia-item" href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">Fedora</a>
+        <a class="ia-item" href="https://archlinux.org/" target="_blank" rel="noopener noreferrer">Arch Linux</a>
+      </span>
+    </span>
+    <span class="nav-ia" id="navFlipper">
+      <a href="#flipper" class="nav-ia-trigger" id="navFlipperTrigger">Flipper Zero</a>
+      <span class="ia-dropdown" id="flipperDropdown">
+        <span class="ia-arrow"></span>
+        <a class="ia-item" href="https://github.com/flipperdevices/flipperzero-firmware" target="_blank" rel="noopener noreferrer">Oficial</a>
+        <a class="ia-item" href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreferrer">Unleashed</a>
+        <a class="ia-item" href="https://github.com/RogueMaster/flipperzero-firmware-wPlugins" target="_blank" rel="noopener noreferrer">RogueMaster</a>
+        <a class="ia-item" href="https://github.com/Flipper-XFW/Xtreme-Firmware" target="_blank" rel="noopener noreferrer">Xtreme</a>
+        <a class="ia-item" href="https://tecnologia4youu.blogspot.com/2024/05/mejores-firmwares-para-flipper-zero.html" target="_blank" rel="noopener noreferrer">Ver artículo en el blog ↗</a>
+      </span>
+    </span>
+    <span class="nav-ia" id="navIa">
+      <a href="#ia" class="nav-ia-trigger" id="navIaTrigger">IA</a>
+      <span class="ia-dropdown" id="iaDropdown">
+        <span class="ia-arrow"></span>
+        <a class="ia-item" href="https://ollama.com/library/glm-5.2" target="_blank" rel="noopener noreferrer">glm-5.2</a>
+        <a class="ia-item" href="https://ollama.com/library/deepseek-v4-flash" target="_blank" rel="noopener noreferrer">deepseek-v4-flash</a>
+        <a class="ia-item" href="https://ollama.com/library/kimi-k3" target="_blank" rel="noopener, noreferrer">kimi-k3</a>
+        <a class="ia-item" href="https://ollama.com/library/qwen3.8" target="_blank" rel="noopener noreferrer">qwen3.8</a>
+        <a class="ia-item" href="https://ollama.com/library/llama3.1" target="_blank" rel="noopener noreferrer">llama3.1</a>
+        <a class="ia-item" href="https://ollama.com/library/mistral" target="_blank" rel="noopener noreferrer">mistral</a>
+        <a class="ia-item" href="https://ollama.com/library/deepseek-coder" target="_blank" rel="noopener noreferrer">deepseek-coder</a>
+        <a class="ia-item" href="https://ollama.com/library/codellama" target="_blank" rel="noopener noreferrer">codellama</a>
+        <a class="ia-item" href="https://ollama.com/library/gemma2" target="_blank" rel="noopener noreferrer">gemma2</a>
+      </span>
+    </span>
+    <a href="#tutoriales">Tutoriales</a>
+    <a href="#novedades">Novedades</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-inner" data-tilt>
+    <p class="eyebrow">Informática · Linux · IA · Flipper Zero</p>
+    <h1 class="hero-title">Domina la <span class="grad">tecnología</span><br />desde cero</h1>
+    <p class="hero-sub">Tutoriales para principiantes, guías de instalación de IA, novedades y mucho más. Una web limpia, dinámica y hecha para curiosos.</p>
+    <div class="hero-cta">
+      <a href="#temas" class="btn btn-primary">Explorar temas</a>
+      <a href="#tutoriales" class="btn btn-ghost">Ver tutoriales</a>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ scroll</div>
+</section>
+
+<!-- ===== TEMAS (cards) ===== -->
+<section class="section" id="temas">
+  <h2 class="section-title" data-reveal>Temas que cubrimos</h2>
+  <p class="section-lead" data-reveal>Desde lo básico hasta lo avanzado. Pasa el ratón por las tarjetas.</p>
+  <div class="grid" id="cardGrid">
+    <a class="card" data-tilt href="https://www.linux.org/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">🐧</div>
+      <h3>Linux</h3>
+      <p>Distros, terminal, permisos, scripting bash y cómo dar el salto sin miedo.</p>
+    </a>
+    <a class="card" data-tilt href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">🤖</div>
+      <h3>Inteligencia Artificial</h3>
+      <p>Modelos locales, prompts, Ollama, y cómo montar tu propia IA en casa.</p>
+    </a>
+    <a class="card" data-tilt href="https://flipperzero.one/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">📡</div>
+      <h3>Flipper Zero</h3>
+      <p>El "swiss army knife" de hacking: firmware, GPIO, subghz y comunidad.</p>
+    </a>
+    <a class="card" data-tilt href="https://www.techspot.com/drivers/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">🔧</div>
+      <h3>Controladores</h3>
+      <p>Drivers, hardware, solución de conflictos y mantenimiento de equipos.</p>
+    </a>
+    <a class="card" data-tilt href="https://www.w3schools.com/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">📚</div>
+      <h3>Tutoriales</h3>
+      <p>Guías paso a paso para principiantes, explicadas sin jerga innecesaria.</p>
+    </a>
+    <a class="card" data-tilt href="https://www.xataka.com/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">⚡</div>
+      <h3>Novedades</h3>
+      <p>Lo último en tecnología, lanzamientos y tendencias que de verdad importan.</p>
+    </a>
+  </div>
+</section>
+
+<!-- ===== LINUX ===== -->
+<section class="section alt" id="linux">
+  <div class="split">
+    <div class="split-text" data-reveal>
+      <h2 class="section-title left">Linux para todos</h2>
+      <p>Ya sea que vengas de Windows o macOS, Linux es más accesible que nunca. Te enseñamos a elegir tu primera distro, a moverte por la terminal y a automatizar tareas.</p>
+      <ul class="checklist">
+        <li>Elección de distro según tu hardware</li>
+        <li>Comandos esenciales de la terminal</li>
+        <li>Gestores de paquetes explicados</li>
+        <li>Scripting bash para automatizar</li>
+      </ul>
+      <div class="fw-submenu">
+        <p class="fw-title">Distribuciones recomendadas</p>
+        <a class="fw-link" href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">Kali Linux ↗</a>
+        <a class="fw-link" href="https://www.parrotsec.org/" target="_blank" rel="noopener noreferrer">Parrot Security ↗</a>
+        <a class="fw-link fw-blog" href="https://tecnologia4youu.blogspot.com/p/linux.html" target="_blank" rel="noopener noreferrer">Ver página en el blog ↗</a>
+      </div>
+    </div>
+    <div class="split-visual" data-tilt>
+      <pre class="code"><code>$ sudo apt update
+$ sudo apt install neofetch
+$ neofetch
+<span class="dim"># Bienvenido a tu terminal</span></code></pre>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FLIPPER ===== -->
+<section class="section" id="flipper">
+  <div class="split reverse">
+    <div class="split-visual" data-tilt>
+      <div class="flipper-screen">
+        <div class="flipper-line">Dolphin waiting...</div>
+        <div class="flipper-bar"><span></span></div>
+        <div class="flipper-line dim">SubGHz · RFID · NFC · GPIO</div>
+      </div>
+    </div>
+    <div class="split-text" data-reveal>
+      <h2 class="section-title left">Flipper Zero</h2>
+      <p>El multicTool portátil para entender cómo funciona el mundo inalámbrico. Aprende sobre firmware, seguridad y la comunidad de proyectos open-source.</p>
+      <ul class="checklist">
+        <li>Flashear firmware seguro</li>
+        <li>Protocolos SubGHz y RFID</li>
+        <li>GPIO y expansión de hardware</li>
+        <li>Ética y uso responsable</li>
+      </ul>
+      <div class="fw-submenu">
+        <p class="fw-title">Firmwares no oficiales</p>
+        <a class="fw-link" href="https://github.com/flipperdevices/flipperzero-firmware" target="_blank" rel="noopener noreferrer">Oficial ↗</a>
+        <a class="fw-link" href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreferrer">Unleashed ↗</a>
+        <a class="fw-link" href="https://github.com/RogueMaster/flipperzero-firmware-wPlugins" target="_blank" rel="noopener noreferrer">RogueMaster ↗</a>
+        <a class="fw-link" href="https://github.com/Flipper-XFW/Xtreme-Firmware" target="_blank" rel="noopener noreferrer">Xtreme ↗</a>
+        <a class="fw-link fw-blog" href="https://tecnologia4youu.blogspot.com/2024/05/mejores-firmwares-para-flipper-zero.html" target="_blank" rel="noopener noreferrer">Ver artículo en el blog ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== IA ===== -->
+<section class="section alt" id="ia">
+  <h2 class="section-title" data-reveal>Inteligencia Artificial en tu máquina</h2>
+  <p class="section-lead" data-reveal>Corre modelos de lenguaje localmente, sin enviar tus datos a la nube.</p>
+  <div class="grid">
+    <a class="card" data-tilt href="https://ollama.com/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">🦙</div>
+      <h3>Ollama</h3>
+      <p>Descarga y ejecuta Llama, Mistral y más con un solo comando. Privado y rápido.</p>
+    </a>
+    <a class="card" data-tilt href="https://www.promptingguide.ai/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">💬</div>
+      <h3>Prompts que funcionan</h3>
+      <p>Técnicas de ingeniería de prompts para sacarle partido a cualquier modelo.</p>
+    </a>
+    <a class="card" data-tilt href="https://github.com/" target="_blank" rel="noopener noreferrer">
+      <div class="card-icon">🖥️</div>
+      <h3>Instalación de IA</h3>
+      <p>Guía completa para montar tu entorno de IA en Linux o Windows desde cero.</p>
+    </a>
+  </div>
+</section>
+
+<!-- ===== TUTORIALES ===== -->
+<section class="section" id="tutoriales">
+  <h2 class="section-title" data-reveal>Tutoriales para principiantes</h2>
+  <p class="section-lead" data-reveal>Pensados para quienes empiezan hoy. Sin asumir conocimientos previos.</p>
+  <div class="timeline" id="timeline">
+    <a class="tl-item" data-reveal href="https://www.w3schools.com/linux/linux_intro.asp" target="_blank" rel="noopener noreferrer"><span class="tl-num">01</span><h4>Tu primera terminal</h4><p>Aprende a moverte por archivos sin el ratón.</p></a>
+    <a class="tl-item" data-reveal href="https://ubuntu.com/tutorials/install-ubuntu-desktop" target="_blank" rel="noopener noreferrer"><span class="tl-num">02</span><h4>Instala Linux</h4><p>En una USB bootable y pruébalo sin tocar tu disco.</p></a>
+    <a class="tl-item" data-reveal href="https://ollama.com/" target="_blank" rel="noopener noreferrer"><span class="tl-num">03</span><h4>Tu primera IA local</h4><p>Ollama en 5 minutos, paso a paso.</p></a>
+    <a class="tl-item" data-reveal href="https://www.gnu.org/software/bash/manual/bash.html" target="_blank" rel="noopener noreferrer"><span class="tl-num">04</span><h4>Automatiza con bash</h4><p>Scripts que te ahorran horas cada semana.</p></a>
+  </div>
+</section>
+
+<!-- ===== NOVEDADES ===== -->
+<section class="section alt" id="novedades">
+  <h2 class="section-title" data-reveal>Novedades de tecnología</h2>
+  <div class="news-grid" id="newsGrid">
+    <a class="news" data-tilt href="https://www.xataka.com/" target="_blank" rel="noopener noreferrer"><span class="tag">IA</span><h4>Modelos cada vez más pequeños</h4><p>Los LLM locales ya compiten con gigantes en tareas cotidianas. <em>Lee las novedades en Xataka</em>.</p></a>
+    <a class="news" data-tilt href="https://www.muycomputer.com/" target="_blank" rel="noopener noreferrer"><span class="tag">Linux</span><h4>Nuevas distros amigables</h4><p>Experiencias de escritorio más pulidas que nunca. <em>Lee las novedades en MuyComputer</em>.</p></a>
+    <a class="news" data-tilt href="https://www.computerhoy.com/" target="_blank" rel="noopener noreferrer"><span class="tag">Hardware</span><h4>Flipper y la comunidad</h4><p>Miles de apps open-source cada mes. <em>Lee las novedades en ComputerHoy</em>.</p></a>
+  </div>
+</section>
+
+<footer class="footer">
+  <p>BitForge · Hecho para curiosos de la tecnología</p>
+  <p class="dim">Proyecto web estático · sin dependencias externas</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
