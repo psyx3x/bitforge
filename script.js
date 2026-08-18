@@ -158,4 +158,110 @@
   wireDropdown("navIa", "navIaTrigger");
   wireDropdown("navLinux", "navLinuxTrigger");
   wireDropdown("navFlipper", "navFlipperTrigger");
+
+  /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
+  const termOpen = document.getElementById("terminalOpen");
+  const termClose = document.getElementById("terminalClose");
+  const termOverlay = document.getElementById("terminalOverlay");
+  const termChat = document.getElementById("terminalChat");
+  const termText = document.getElementById("terminalText");
+  const termSend = document.getElementById("terminalSend");
+  const attachImg = document.getElementById("attachImg");
+  const attachFile = document.getElementById("attachFile");
+  const attachMore = document.getElementById("attachMore");
+  const fileImg = document.getElementById("fileImg");
+  const fileAny = document.getElementById("fileAny");
+  const attachName = document.getElementById("attachName");
+
+  function openTerminal() {
+    termOverlay.classList.add("open");
+    termOverlay.setAttribute("aria-hidden", "false");
+    setTimeout(() => termText.focus(), 50);
+  }
+  function closeTerminal() {
+    termOverlay.classList.remove("open");
+    termOverlay.setAttribute("aria-hidden", "true");
+  }
+  termOpen.addEventListener("click", (e) => { e.preventDefault(); openTerminal(); });
+  termClose.addEventListener("click", closeTerminal);
+  termOverlay.addEventListener("click", (e) => { if (e.target === termOverlay) closeTerminal(); });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape" && termOverlay.classList.contains("open")) closeTerminal(); });
+
+  let pendingAttachment = null; // {type:'image'|'file', name, dataUrl?}
+
+  function addMessage(role, html) {
+    const wrap = document.createElement("div");
+    wrap.className = "msg " + role;
+    const avatar = role === "user" ? "TÚ" : "BF";
+    wrap.innerHTML = '<div class="avatar">' + avatar + '</div><div class="bubble">' + html + "</div>";
+    termChat.appendChild(wrap);
+    termChat.scrollTop = termChat.scrollHeight;
+  }
+
+  function escapeHtml(s) {
+    return s.replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  }
+
+  function sendMessage() {
+    const text = termText.value.trim();
+    if (!text && !pendingAttachment) return;
+    let body = "";
+    if (pendingAttachment) {
+      if (pendingAttachment.type === "image") {
+        body += '<img src="' + pendingAttachment.dataUrl + '" alt="adjunto"/>';
+      } else {
+        body += '<div class="fname">📎 ' + escapeHtml(pendingAttachment.name) + "</div>";
+      }
+    }
+    if (text) body += (body ? "<br>" : "") + escapeHtml(text);
+    addMessage("user", body);
+    termText.value = "";
+    pendingAttachment = null;
+    attachName.textContent = "";
+    autoGrow();
+
+    // respuesta de muestra (placeholder, sin IA real)
+    setTimeout(() => {
+      const samples = [
+        "Recibido. Esta es una demo visual: aún no hay un modelo de IA conectado, pero la interfaz ya funciona igual que un chat real.",
+        "Buena pregunta sobre tecnología. Cuando conectemos la IA (vía API + proxy), responderé de verdad aquí mismo.",
+        "Entendido. Puedes adjuntar imágenes o archivos con los botones de abajo, como en GPT o Gemini.",
+      ];
+      addMessage("bot", samples[Math.floor(Math.random() * samples.length)]);
+    }, 500);
+  }
+
+  termSend.addEventListener("click", sendMessage);
+  termText.addEventListener("keydown", (e) => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  });
+
+  function autoGrow() {
+    termText.style.height = "auto";
+    termText.style.height = Math.min(termText.scrollHeight, 140) + "px";
+  }
+  termText.addEventListener("input", autoGrow);
+
+  attachImg.addEventListener("click", () => fileImg.click());
+  attachFile.addEventListener("click", () => fileAny.click());
+  attachMore.addEventListener("click", () => fileAny.click());
+
+  fileImg.addEventListener("change", () => {
+    const f = fileImg.files[0];
+    if (!f) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      pendingAttachment = { type: "image", name: f.name, dataUrl: reader.result };
+      attachName.textContent = "🖼️ " + f.name;
+    };
+    reader.readAsDataURL(f);
+    fileImg.value = "";
+  });
+  fileAny.addEventListener("change", () => {
+    const f = fileAny.files[0];
+    if (!f) return;
+    pendingAttachment = { type: "file", name: f.name };
+    attachName.textContent = "📎 " + f.name;
+    fileAny.value = "";
+  });
 })();
