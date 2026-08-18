@@ -31,6 +31,16 @@ body::before{
              radial-gradient(800px 600px at 10% 10%,rgba(160,107,255,0.26),transparent 55%),
              radial-gradient(700px 500px at 50% 110%,rgba(39,224,192,0.14),transparent 60%);
 }
+/* etiqueta discreta de la figura que se forma en el fondo */
+.fig-label{
+  position:fixed;left:50%;bottom:24px;transform:translateX(-50%);
+  z-index:1;pointer-events:none;
+  font-size:.72rem;letter-spacing:3px;text-transform:uppercase;
+  color:var(--dim);
+  background:rgba(7,9,15,0.35);border:1px solid var(--border);
+  padding:6px 14px;border-radius:999px;backdrop-filter:blur(6px);
+  transition:opacity .4s;
+}
 .cursor-glow{
   position:fixed;width:520px;height:520px;border-radius:50%;pointer-events:none;z-index:0;
   background:radial-gradient(circle, rgba(91,140,255,0.22), rgba(160,107,255,0.10) 40%, transparent 70%);
