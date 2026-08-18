@@ -63,13 +63,39 @@
       // conexiones radiales (se unen al centro por cercanía)
       {x:50,y:26},{x:74,y:42},{x:74,y:58},{x:50,y:74},{x:26,y:58},{x:26,y:42},
     ],
+    parrot: [
+      // cabeza / cogote
+      {x:34,y:20},{x:41,y:16},{x:47,y:19},{x:48,y:26},{x:43,y:31},{x:37,y:31},{x:31,y:27},
+      // pico curvo (hacia la izquierda)
+      {x:27,y:25},{x:20,y:27},{x:18,y:31},{x:24,y:32},{x:29,y:30},
+      // ojo
+      {x:38,y:23},
+      // cuerpo
+      {x:45,y:33},{x:53,y:35},{x:57,y:44},{x:55,y:54},{x:47,y:58},{x:41,y:53},{x:41,y:43},
+      // ala
+      {x:51,y:37},{x:60,y:42},{x:58,y:53},{x:49,y:51},
+      // cola larga (hacia abajo-derecha)
+      {x:54,y:57},{x:63,y:66},{x:68,y:78},{x:61,y:73},{x:55,y:64},
+      // patas
+      {x:45,y:60},{x:45,y:67},{x:51,y:60},{x:51,y:67},
+      // perchita
+      {x:30,y:69},{x:72,y:69},
+    ],
   };
 
-  const ORDER = ["dragon", "penguin", "dolphin", "ai"];
-  const LABELS = { dragon: "Kali Linux", penguin: "Linux", dolphin: "Flipper Zero", ai: "Inteligencia Artificial" };
+  // orden aleatorio en cada recarga (F5): se baraja la lista de figuras
+  const ORDER_BASE = ["dragon", "penguin", "dolphin", "ai", "parrot"];
+  let ORDER = ORDER_BASE.slice();
+  (function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+  })(ORDER);
+  const LABELS = { dragon: "Kali Linux", penguin: "Linux", dolphin: "Flipper Zero", ai: "Inteligencia Artificial", parrot: "Parrot Security" };
 
   let particles = [];
-  let figIndex = 0;
+  let figIndex = Math.floor(Math.random() * ORDER.length); // arranca en una figura al azar
   let figTimer = 0;
   const FIG_DURATION = 700; // frames que dura cada figura (~12s a 60fps)
 
