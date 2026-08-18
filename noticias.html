@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BitForge — Noticias</title>
+<meta name="description" content="Noticias de informática, Linux, IA y Flipper Zero, día a día." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="iaSparks"></canvas>
+<canvas id="iaSmoke"></canvas>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="brand"><span class="brand-mark">&lt;/&gt;</span> BitForge</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#temas">Temas</a>
+    <a href="index.html#linux">Linux</a>
+    <a href="index.html#flipper">Flipper Zero</a>
+    <a href="index.html#ia">IA</a>
+    <a href="index.html#tutoriales">Tutoriales</a>
+    <a href="noticias.html">Noticias</a>
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<section class="section">
+  <h2 class="section-title" data-reveal>Noticias de BitForge</h2>
+  <p class="section-lead" data-reveal>Actualizado día a día. Las novedades más recientes, arriba.</p>
+
+  <div class="news-feed" id="newsFeed">
+
+    <!-- ============================================================
+         PLANTILLA: copia este bloque <article> y pégalo encima
+         del anterior para añadir una noticia nueva.
+         Cambia la fecha, el tag y el texto.
+    ============================================================ -->
+    <article class="post">
+      <div class="post-meta"><span class="post-date">18 AGO 2026</span><span class="tag">EJEMPLO</span></div>
+      <h3 class="post-title">Título de la noticia</h3>
+      <p class="post-body">Escribe aquí el texto de la noticia. Puedes añadir varios párrafos. Para enlazar a una fuente usa
+      <a href="https://example.com" target="_blank" rel="noopener noreferrer">este formato de enlace</a>.</p>
+    </article>
+    <!-- FIN PLANTILLA -->
+
+    <article class="post">
+      <div class="post-meta"><span class="post-date">17 AGO 2026</span><span class="tag">IA</span></div>
+      <h3 class="post-title">BitForge abre su Terminal de demostración</h3>
+      <p class="post-body">Añadimos una pestaña "Terminal" con apariencia de chat (estilo GPT/Gemini) para probar la interfaz de conversación. Por ahora es solo visual; la IA real llegará conectando una API.</p>
+    </article>
+
+  </div>
+</section>
+
+<footer class="footer">
+  <p>BitForge · Hecho para curiosos de la tecnología</p>
+  <p class="dim">Proyecto web estático · sin dependencias externas</p>
+</footer>
+
+<script src="script.js"></script>
+<script src="bg-figures.js"></script>
+</body>
+</html>
