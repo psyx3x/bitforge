@@ -1,16 +1,15 @@
-1|/* ===== BitForge — fondo de partículas formando figuras (dragón/pingüino/delfín/IA) ===== */
-2|(function () {
-3|  "use strict";
-4|
-5|  const canvas = document.getElementById("bg");
-6|  const ctx = canvas.getContext("2d");
-7|  let W = 0, H = 0, dpr = 1;
-8|
-9|  /* ---- Figuras en coordenadas 0..100 (se escalan al canvas) ----
-10|     Cada figura es una lista de puntos {x,y} dibujados a mano (estilo low-poly/constelación).
-11|     La "malla" (líneas) se traza uniendo puntos cercanos entre sí.                  */
-12|  const FIGURES = {
-13|    dragon: [
+/* ===== BitForge — fondo de partículas formando figuras ===== */
+(function () {
+  "use strict";
+
+  const canvas = document.getElementById("bg");
+  const ctx = canvas.getContext("2d");
+  let W = 0, H = 0, dpr = 1;
+
+  /* ---- Figuras en coordenadas 0..100 (se escalan al canvas) ----
+     dragon = escaneado del logo real de Kali; el resto dibujadas a mano. */
+  const FIGURES = {
+    dragon: [
       {x:4.0,y:6.3},
       {x:5.2,y:6.9},
       {x:8.5,y:7.3},
@@ -201,216 +200,177 @@
       {x:88.1,y:91.5},
       {x:88.2,y:94.6},
     ],
-28|    penguin: [
-29|      // cabeza
-30|      {x:50,y:10},{x:44,y:16},{x:42,y:24},{x:46,y:30},{x:54,y:30},{x:58,y:24},{x:56,y:16},
-31|      // cuerpo
-32|      {x:40,y:34},{x:36,y:46},{x:38,y:62},{x:46,y:72},{x:54,y:72},{x:62,y:62},{x:64,y:46},{x:60,y:34},
-33|      // ojos
-34|      {x:46,y:20},{x:54,y:20},
-35|      // pico
-36|      {x:50,y:24},{x:50,y:28},
-37|      // aletas
-38|      {x:36,y:42},{x:30,y:50},{x:64,y:42},{x:70,y:50},
-39|      // pies
-40|      {x:44,y:74},{x:40,y:80},{x:56,y:74},{x:60,y:80},
-41|    ],
-42|    dolphin: [
-43|      // hocico / cabeza
-44|      {x:14,y:50},{x:22,y:44},{x:30,y:42},{x:40,y:44},{x:50,y:48},
-45|      // lomo
-46|      {x:58,y:42},{x:66,y:36},{x:74,y:34},{x:82,y:38},
-47|      // cola
-48|      {x:86,y:34},{x:92,y:26},{x:94,y:34},{x:90,y:42},{x:86,y:44},
-49|      // barriga / vientre
-50|      {x:50,y:54},{x:42,y:58},{x:34,y:60},{x:26,y:60},{x:20,y:56},
-51|      // aleta pectoral
-52|      {x:44,y:58},{x:40,y:68},{x:48,y:64},
-53|      // ojo
-54|      {x:28,y:48},
-55|    ],
-56|    ai: [
-57|      // nodo central
-58|      {x:50,y:50},
-59|      // anillo interior
-60|      {x:50,y:34},{x:66,y:42},{x:66,y:58},{x:50,y:66},{x:34,y:58},{x:34,y:42},
-61|      // nodos exteriores
-62|      {x:50,y:18},{x:82,y:34},{x:82,y:66},{x:50,y:82},{x:18,y:66},{x:18,y:34},
-63|      // conexiones radiales (se unen al centro por cercanía)
-64|      {x:50,y:26},{x:74,y:42},{x:74,y:58},{x:50,y:74},{x:26,y:58},{x:26,y:42},
-65|    ],
-66|    parrot: [
-67|      // cabeza / cogote
-68|      {x:34,y:20},{x:41,y:16},{x:47,y:19},{x:48,y:26},{x:43,y:31},{x:37,y:31},{x:31,y:27},
-69|      // pico curvo (hacia la izquierda)
-70|      {x:27,y:25},{x:20,y:27},{x:18,y:31},{x:24,y:32},{x:29,y:30},
-71|      // ojo
-72|      {x:38,y:23},
-73|      // cuerpo
-74|      {x:45,y:33},{x:53,y:35},{x:57,y:44},{x:55,y:54},{x:47,y:58},{x:41,y:53},{x:41,y:43},
-75|      // ala
-76|      {x:51,y:37},{x:60,y:42},{x:58,y:53},{x:49,y:51},
-77|      // cola larga (hacia abajo-derecha)
-78|      {x:54,y:57},{x:63,y:66},{x:68,y:78},{x:61,y:73},{x:55,y:64},
-79|      // patas
-80|      {x:45,y:60},{x:45,y:67},{x:51,y:60},{x:51,y:67},
-81|      // perchita
-82|      {x:30,y:69},{x:72,y:69},
-83|    ],
-84|  };
-85|
-86|  // orden aleatorio en cada recarga (F5): se baraja la lista de figuras
-87|  const ORDER_BASE = ["dragon", "penguin", "dolphin", "ai", "parrot"];
-88|  let ORDER = ORDER_BASE.slice();
-89|  (function shuffle(a) {
-90|    for (let i = a.length - 1; i > 0; i--) {
-91|      const j = Math.floor(Math.random() * (i + 1));
-92|      [a[i], a[j]] = [a[j], a[i]];
-93|    }
-94|  })(ORDER);
-95|  const LABELS = { dragon: "Kali Linux", penguin: "Linux", dolphin: "Flipper Zero", ai: "Inteligencia Artificial", parrot: "Parrot Security" };
-96|
-97|  let particles = [];
-98|  let figIndex = Math.floor(Math.random() * ORDER.length); // arranca en una figura al azar
-99|  let figTimer = 0;
-100|  const FIG_DURATION = 700; // frames que dura cada figura (~12s a 60fps)
-101|
-102|  let mouse = { x: -9999, y: -9999, active: false };
-103|  const PARALLAX = 26; // desplazamiento suave de la figura según el ratón
-104|
-105|  function resize() {
-106|    dpr = Math.min(window.devicePixelRatio || 1, 2);
-107|    W = canvas.width = Math.floor(innerWidth * dpr);
-108|    H = canvas.height = Math.floor(innerHeight * dpr);
-109|    canvas.style.width = innerWidth + "px";
-110|    canvas.style.height = innerHeight + "px";
-111|  }
-112|
-113|  function targetFor(figName) {
-114|    const fig = FIGURES[figName];
-115|    const base = Math.min(W, H) * 0.62;       // tamaño de la figura
-116|    const cx = W / 2, cy = H / 2;
-117|    return fig.map((p) => ({
-118|      x: cx + (p.x - 50) / 100 * base,
-119|      y: cy + (p.y - 50) / 100 * base,
-120|    }));
-121|  }
-122|
-123|  function assignTargets() {
-124|    const targets = targetFor(ORDER[figIndex]);
-125|    // si hay más partículas que puntos, repite puntos para rellenar
-126|    particles.forEach((p, i) => {
-127|      const t = targets[i % targets.length];
-128|      p.tx = t.x; p.ty = t.y;
-129|    });
-130|  }
-131|
-132|  function init() {
-133|    // nº de partículas = puntos de la figura más grande, con un mínimo decorativo
-134|    const maxPts = Math.max(...ORDER.map((f) => FIGURES[f].length));
-135|    const count = maxPts + 14; // extras para "polvo" flotante
-136|    particles = [];
-137|    for (let i = 0; i < count; i++) {
-138|      particles.push({
-139|        x: Math.random() * W,
-140|        y: Math.random() * H,
-141|        vx: 0, vy: 0,
-142|        r: (Math.random() * 1.6 + 1.1) * dpr,
-143|        tx: W / 2, ty: H / 2,
-144|        isDust: i >= maxPts, // las últimas son polvo, no forman figura
-145|      });
-146|    }
-147|    assignTargets();
-148|    const lbl = document.getElementById("figLabel");
-149|    if (lbl) lbl.textContent = LABELS[ORDER[figIndex]];
-150|  }
-151|
-152|  function draw() {
-153|    ctx.clearRect(0, 0, W, H);
-154|
-155|    // parallax suave de la figura hacia el ratón
-156|    const px = mouse.active ? (mouse.x / dpr - W / dpr / 2) / (W / dpr / 2) : 0;
-157|    const py = mouse.active ? (mouse.y / dpr - H / dpr / 2) / (H / dpr / 2) : 0;
-158|
-159|    const solid = particles.filter((p) => !p.isDust);
-160|    const dust = particles.filter((p) => p.isDust);
-161|
-162|    // mover partículas sólidas hacia su punto objetivo
-163|    solid.forEach((p) => {
-164|      const tox = p.tx + px * PARALLAX * dpr;
-165|      const toy = p.ty + py * PARALLAX * dpr;
-166|      p.vx += (tox - p.x) * 0.012;
-167|      p.vy += (toy - p.y) * 0.012;
-168|      p.vx *= 0.86; p.vy *= 0.86;
-169|      p.x += p.vx; p.y += p.vy;
-170|    });
-171|    // polvo flotante lento
-172|    dust.forEach((p) => {
-173|      p.x += p.vx; p.y += p.vy;
-174|      p.vx *= 0.99; p.vy *= 0.99;
-175|      if (Math.abs(p.vx) < 0.05 * dpr) p.vx += (Math.random() - 0.5) * 0.04 * dpr;
-176|      if (Math.abs(p.vy) < 0.05 * dpr) p.vy += (Math.random() - 0.5) * 0.04 * dpr;
-177|      if (p.x < 0 || p.x > W) p.vx *= -1;
-178|      if (p.y < 0 || p.y > H) p.vy *= -1;
-179|    });
-180|
-181|    // ---- MALLA: líneas entre partículas sólidas cercanas (efecto constelación) ----
-182|    const max = 70 * dpr;
-183|    for (let i = 0; i < solid.length; i++) {
-184|      const a = solid[i];
-185|      for (let j = i + 1; j < solid.length; j++) {
-186|        const b = solid[j];
-187|        const dx = a.x - b.x, dy = a.y - b.y;
-188|        const d = Math.hypot(dx, dy);
-189|        if (d < max) {
-190|          const alpha = 0.22 * (1 - d / max);
-191|          ctx.strokeStyle = "rgba(120,170,255," + alpha + ")";
-192|          ctx.lineWidth = dpr * 0.7;
-193|          ctx.beginPath();
-194|          ctx.moveTo(a.x, a.y);
-195|          ctx.lineTo(b.x, b.y);
-196|          ctx.stroke();
-197|        }
-198|      }
-199|    }
-200|
-201|    // ---- PUNTOS ----
-202|    for (const p of particles) {
-203|      ctx.beginPath();
-204|      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-205|      ctx.fillStyle = p.isDust ? "rgba(150,185,255,0.35)" : "rgba(170,200,255,0.95)";
-206|      ctx.fill();
-207|    }
-208|
-209|    // rotación de figura
-210|    figTimer++;
-211|    if (figTimer >= FIG_DURATION) {
-212|      figTimer = 0;
-213|      figIndex = (figIndex + 1) % ORDER.length;
-214|      assignTargets();
-215|      const lbl = document.getElementById("figLabel");
-216|      if (lbl) lbl.textContent = LABELS[ORDER[figIndex]];
-217|    }
-218|
-219|    requestAnimationFrame(draw);
-220|  }
-221|
-222|  // eventos
-223|  window.addEventListener("mousemove", (e) => {
-224|    mouse.x = e.clientX * dpr;
-225|    mouse.y = e.clientY * dpr;
-226|    mouse.active = true;
-227|  });
-228|  window.addEventListener("mouseleave", () => { mouse.active = false; });
-229|
-230|  resize();
-231|  init();
-232|  draw();
-233|  window.addEventListener("resize", () => { resize(); init(); });
-234|
-235|  // pausar animación cuando la pestaña no es visible (ahorra batería/CPU)
-236|  document.addEventListener("visibilitychange", () => {
-237|    if (!document.hidden) { init(); }
-238|  });
-239|})();
-240|
+    penguin: [
+      {x:50,y:10},{x:44,y:16},{x:42,y:24},{x:46,y:30},{x:54,y:30},{x:58,y:24},{x:56,y:16},
+      {x:40,y:34},{x:36,y:46},{x:38,y:62},{x:46,y:72},{x:54,y:72},{x:62,y:62},{x:64,y:46},{x:60,y:34},
+      {x:46,y:20},{x:54,y:20},
+      {x:50,y:24},{x:50,y:28},
+      {x:36,y:42},{x:30,y:50},{x:64,y:42},{x:70,y:50},
+      {x:44,y:74},{x:40,y:80},{x:56,y:74},{x:60,y:80},
+    ],
+    dolphin: [
+      {x:14,y:50},{x:22,y:44},{x:30,y:42},{x:40,y:44},{x:50,y:48},
+      {x:58,y:42},{x:66,y:36},{x:74,y:34},{x:82,y:38},
+      {x:86,y:34},{x:92,y:26},{x:94,y:34},{x:90,y:42},{x:86,y:44},
+      {x:50,y:54},{x:42,y:58},{x:34,y:60},{x:26,y:60},{x:20,y:56},
+      {x:44,y:58},{x:40,y:68},{x:48,y:64},
+      {x:28,y:48},
+    ],
+    ai: [
+      {x:50,y:50},
+      {x:50,y:34},{x:66,y:42},{x:66,y:58},{x:50,y:66},{x:34,y:58},{x:34,y:42},
+      {x:50,y:18},{x:82,y:34},{x:82,y:66},{x:50,y:82},{x:18,y:66},{x:18,y:34},
+      {x:50,y:26},{x:74,y:42},{x:74,y:58},{x:50,y:74},{x:26,y:58},{x:26,y:42},
+    ],
+    parrot: [
+      {x:34,y:20},{x:41,y:16},{x:47,y:19},{x:48,y:26},{x:43,y:31},{x:37,y:31},{x:31,y:27},
+      {x:27,y:25},{x:20,y:27},{x:18,y:31},{x:24,y:32},{x:29,y:30},
+      {x:38,y:23},
+      {x:45,y:33},{x:53,y:35},{x:57,y:44},{x:55,y:54},{x:47,y:58},{x:41,y:53},{x:41,y:43},
+      {x:51,y:37},{x:60,y:42},{x:58,y:53},{x:49,y:51},
+      {x:54,y:57},{x:63,y:66},{x:68,y:78},{x:61,y:73},{x:55,y:64},
+      {x:45,y:60},{x:45,y:67},{x:51,y:60},{x:51,y:67},
+      {x:30,y:69},{x:72,y:69},
+    ],
+  };
+
+  const ORDER_BASE = ["dragon", "penguin", "dolphin", "ai", "parrot"];
+  let ORDER = ORDER_BASE.slice();
+  (function shuffle(a) {
+    for (let i = a.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [a[i], a[j]] = [a[j], a[i]];
+    }
+  })(ORDER);
+  const LABELS = { dragon: "Kali Linux", penguin: "Linux", dolphin: "Flipper Zero", ai: "Inteligencia Artificial", parrot: "Parrot Security" };
+
+  let particles = [];
+  let figIndex = Math.floor(Math.random() * ORDER.length);
+  let figTimer = 0;
+  const FIG_DURATION = 700;
+
+  let mouse = { x: -9999, y: -9999, active: false };
+  const PARALLAX = 26;
+
+  function resize() {
+    dpr = Math.min(window.devicePixelRatio || 1, 2);
+    W = canvas.width = Math.floor(innerWidth * dpr);
+    H = canvas.height = Math.floor(innerHeight * dpr);
+    canvas.style.width = innerWidth + "px";
+    canvas.style.height = innerHeight + "px";
+  }
+
+  function targetFor(figName) {
+    const fig = FIGURES[figName];
+    const base = Math.min(W, H) * 0.62;
+    const cx = W / 2, cy = H / 2;
+    return fig.map((p) => ({
+      x: cx + (p.x - 50) / 100 * base,
+      y: cy + (p.y - 50) / 100 * base,
+    }));
+  }
+
+  function assignTargets() {
+    const targets = targetFor(ORDER[figIndex]);
+    particles.forEach((p, i) => {
+      const t = targets[i % targets.length];
+      p.tx = t.x; p.ty = t.y;
+    });
+  }
+
+  function init() {
+    const maxPts = Math.max(...ORDER.map((f) => FIGURES[f].length));
+    const count = maxPts + 14;
+    particles = [];
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * W,
+        y: Math.random() * H,
+        vx: 0, vy: 0,
+        r: (Math.random() * 1.6 + 1.1) * dpr,
+        tx: W / 2, ty: H / 2,
+        isDust: i >= maxPts,
+      });
+    }
+    assignTargets();
+    const lbl = document.getElementById("figLabel");
+    if (lbl) lbl.textContent = LABELS[ORDER[figIndex]];
+  }
+
+  function draw() {
+    ctx.clearRect(0, 0, W, H);
+
+    const px = mouse.active ? (mouse.x / dpr - W / dpr / 2) / (W / dpr / 2) : 0;
+    const py = mouse.active ? (mouse.y / dpr - H / dpr / 2) / (H / dpr / 2) : 0;
+
+    const solid = particles.filter((p) => !p.isDust);
+    const dust = particles.filter((p) => p.isDust);
+
+    solid.forEach((p) => {
+      const tox = p.tx + px * PARALLAX * dpr;
+      const toy = p.ty + py * PARALLAX * dpr;
+      p.vx += (tox - p.x) * 0.012;
+      p.vy += (toy - p.y) * 0.012;
+      p.vx *= 0.86; p.vy *= 0.86;
+      p.x += p.vx; p.y += p.vy;
+    });
+    dust.forEach((p) => {
+      p.x += p.vx; p.y += p.vy;
+      p.vx *= 0.99; p.vy *= 0.99;
+      if (Math.abs(p.vx) < 0.05 * dpr) p.vx += (Math.random() - 0.5) * 0.04 * dpr;
+      if (Math.abs(p.vy) < 0.05 * dpr) p.vy += (Math.random() - 0.5) * 0.04 * dpr;
+      if (p.x < 0 || p.x > W) p.vx *= -1;
+      if (p.y < 0 || p.y > H) p.vy *= -1;
+    });
+
+    const max = 70 * dpr;
+    for (let i = 0; i < solid.length; i++) {
+      const a = solid[i];
+      for (let j = i + 1; j < solid.length; j++) {
+        const b = solid[j];
+        const dx = a.x - b.x, dy = a.y - b.y;
+        const d = Math.hypot(dx, dy);
+        if (d < max) {
+          const alpha = 0.22 * (1 - d / max);
+          ctx.strokeStyle = "rgba(120,170,255," + alpha + ")";
+          ctx.lineWidth = dpr * 0.7;
+          ctx.beginPath();
+          ctx.moveTo(a.x, a.y);
+          ctx.lineTo(b.x, b.y);
+          ctx.stroke();
+        }
+      }
+    }
+
+    for (const p of particles) {
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = p.isDust ? "rgba(150,185,255,0.35)" : "rgba(170,200,255,0.95)";
+      ctx.fill();
+    }
+
+    figTimer++;
+    if (figTimer >= FIG_DURATION) {
+      figTimer = 0;
+      figIndex = (figIndex + 1) % ORDER.length;
+      assignTargets();
+      const lbl = document.getElementById("figLabel");
+      if (lbl) lbl.textContent = LABELS[ORDER[figIndex]];
+    }
+
+    requestAnimationFrame(draw);
+  }
+
+  window.addEventListener("mousemove", (e) => {
+    mouse.x = e.clientX * dpr;
+    mouse.y = e.clientY * dpr;
+    mouse.active = true;
+  });
+  window.addEventListener("mouseleave", () => { mouse.active = false; });
+
+  resize();
+  init();
+  draw();
+  window.addEventListener("resize", () => { resize(); init(); });
+  document.addEventListener("visibilitychange", () => { if (!document.hidden) init(); });
+})();
