@@ -179,4 +179,46 @@
       '<p class="dim">Los comentarios se activarán al conectar Giscus (gratis). ' +
       'Pídele a Hermes que lo configure o ve a giscus.app.</p>';
   }
+
+  /* ---- Modal single-post: título clicable abre la noticia sola ---- */
+  const postModal = document.getElementById("postModal");
+  const postModalBody = document.getElementById("postModalBody");
+  const postModalClose = document.getElementById("postModalClose");
+
+  function openPost(article) {
+    if (!postModal || !postModalBody || !article) return;
+    // clonamos el contenido del post (meta + título + cuerpo + vídeo)
+    const clone = article.cloneNode(true);
+    clone.classList.remove("hidden");
+    clone.querySelectorAll(".post-link").forEach((l) => {
+      l.removeAttribute("href");
+      l.classList.remove("post-link");
+    });
+    postModalBody.innerHTML = "";
+    postModalBody.appendChild(clone);
+    postModal.classList.add("open");
+    postModal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+  }
+  function closePost() {
+    if (!postModal) return;
+    postModal.classList.remove("open");
+    postModal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
+  }
+
+  document.querySelectorAll(".post-link").forEach((link) => {
+    link.addEventListener("click", (e) => {
+      e.preventDefault();
+      const article = link.closest(".post");
+      openPost(article);
+    });
+  });
+  if (postModalClose) postModalClose.addEventListener("click", closePost);
+  if (postModal) {
+    postModal.addEventListener("click", (e) => { if (e.target === postModal) closePost(); });
+  }
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && postModal && postModal.classList.contains("open")) closePost();
+  });
 })();

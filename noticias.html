@@ -51,48 +51,47 @@
     <div class="news-main">
       <div class="news-feed" id="newsFeed">
 
-        <article class="post" data-tags="internet cloudflare">
+        <article class="post" id="post-cloudflare" data-tags="internet cloudflare">
           <div class="post-meta"><span class="post-date">19 AGO 2026</span>
             <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
             <a class="tag" href="noticias.html?tag=cloudflare">CLOUDFLARE</a>
           </div>
-          <h3 class="post-title">Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</h3>
+          <h3 class="post-title"><a href="#post-cloudflare" class="post-link">Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</a></h3>
           <p class="post-body">Cloudflare presenta un cambio que promete alterar cómo funciona internet y, sobre todo, cómo se monetiza el contenido. En el vídeo se explica un modelo nuevo mediante el cual los creadores y sitios web podrán obtener ingresos de una forma distinta a la publicidad tradicional. Aquí el resumen y el enlace al análisis completo:</p>
           <div class="post-video">
             <iframe src="https://www.youtube-nocookie.com/embed/qT784npVXF4" title="Cloudflare va a cambiar internet para siempre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
           </div>
         </article>
 
-        <article class="post" data-tags="web ia">
+        <article class="post" id="post-terminal-ia" data-tags="web ia">
           <div class="post-meta"><span class="post-date">19 AGO 2026</span>
             <a class="tag" href="noticias.html?tag=web">WEB</a>
             <a class="tag" href="noticias.html?tag=ia">IA</a>
           </div>
-          <h3 class="post-title">BitForge estrena Terminal con IA y buscador de noticias</h3>
+          <h3 class="post-title"><a href="#post-terminal-ia" class="post-link">BitForge estrena Terminal con IA y buscador de noticias</a></h3>
           <p class="post-body">La web ahora incluye una pestaña <strong>Terminal</strong> con apariencia de chat (estilo GPT/Gemini) que responde con IA real vía OpenRouter. La IA puede leer esta misma sección de noticias y contestar a preguntas como "¿qué hay de nuevo?". También sumamos esta página de noticias, donde iremos publicando novedades día a día sobre Linux, IA y Flipper Zero.</p>
         </article>
 
         <!-- ============================================================
              PLANTILLA: copia este bloque <article> y pégalo encima
              del anterior para añadir una noticia nueva.
-             Pon las tags en data-tags (minúsculas, separadas por espacio)
-             y repite los <a class="tag" href="noticias.html?tag=xxx">.
+             Pon un id único (post-xxx) y usa class="post-link" en el título.
         ============================================================ -->
-        <article class="post" data-tags="ejemplo">
+        <article class="post" id="post-ejemplo" data-tags="ejemplo">
           <div class="post-meta"><span class="post-date">18 AGO 2026</span>
             <a class="tag" href="noticias.html?tag=ejemplo">EJEMPLO</a>
           </div>
-          <h3 class="post-title">Título de la noticia</h3>
+          <h3 class="post-title"><a href="#post-ejemplo" class="post-link">Título de la noticia</a></h3>
           <p class="post-body">Escribe aquí el texto de la noticia. Puedes añadir varios párrafos. Para enlazar a una fuente usa
           <a href="https://example.com" target="_blank" rel="noopener noreferrer">este formato de enlace</a>.</p>
         </article>
         <!-- FIN PLANTILLA -->
 
-        <article class="post" data-tags="ia">
+        <article class="post" id="post-terminal-demo" data-tags="ia">
           <div class="post-meta"><span class="post-date">17 AGO 2026</span>
             <a class="tag" href="noticias.html?tag=ia">IA</a>
           </div>
-          <h3 class="post-title">BitForge abre su Terminal de demostración</h3>
+          <h3 class="post-title"><a href="#post-terminal-demo" class="post-link">BitForge abre su Terminal de demostración</a></h3>
           <p class="post-body">Añadimos una pestaña "Terminal" con apariencia de chat (estilo GPT/Gemini) para probar la interfaz de conversación. Por ahora es solo visual; la IA real llegaría conectando una API.</p>
         </article>
 
@@ -123,6 +122,13 @@
     </aside>
   </div>
 </section>
+
+<div class="post-modal-overlay" id="postModal" aria-hidden="true">
+  <div class="post-modal" role="dialog" aria-label="Noticia">
+    <button class="post-modal-close" id="postModalClose" aria-label="Cerrar">✕</button>
+    <div class="post-modal-body" id="postModalBody"></div>
+  </div>
+</div>
 
 <footer class="footer">
   <p>BitForge · Hecho para curiosos de la tecnología</p>
