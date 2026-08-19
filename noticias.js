@@ -138,13 +138,18 @@
     });
   }
 
-  // --- URL con ?tag= al cargar ---
+  // --- URL con ?tag= o ?q= al cargar ---
   const params = new URLSearchParams(window.location.search);
   const initial = params.get("tag");
   if (initial) {
     activeTag = initial;
     if (filterBar) filterBar.querySelectorAll(".tag-btn").forEach((b) =>
       b.classList.toggle("active", b.getAttribute("data-filter") === initial));
+  }
+  const qParam = params.get("q");
+  if (qParam && searchInput) {
+    searchTerm = qParam.toLowerCase();
+    searchInput.value = qParam;
   }
 
   buildTagCloud();

@@ -316,4 +316,15 @@
   if (fzOverlay) {
     fzOverlay.addEventListener("click", (e) => { if (e.target === fzOverlay) closeFlipper(); });
   }
+
+  /* ---- Buscador de la portada -> redirige a noticias filtradas ---- */
+  const heroSearch = document.getElementById("heroSearch");
+  if (heroSearch) {
+    heroSearch.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") {
+        const q = heroSearch.value.trim();
+        window.location.href = "noticias.html" + (q ? "?q=" + encodeURIComponent(q) : "");
+      }
+    });
+  }
 })();
