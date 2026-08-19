@@ -98,7 +98,7 @@
     if (!tagCloud) return;
     const counts = {};
     posts.forEach((p) => postTags(p).forEach((t) => (counts[t] = (counts[t] || 0) + 1)));
-    const order = { ia: "IA", web: "Web", internet: "Internet", cloudflare: "Cloudflare", ejemplo: "Ejemplo" };
+    const order = { ia: "IA", web: "Web", internet: "Internet", cloudflare: "Cloudflare", ejemplo: "Ejemplo", linux: "Linux", kernel: "Kernel", hardware: "Hardware", framework: "Framework" };
     Object.keys(counts).forEach((t) => {
       const a = document.createElement("a");
       a.className = "cloud-tag";
