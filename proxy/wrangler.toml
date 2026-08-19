@@ -1,0 +1,11 @@
+name = "bitforge-terminal"
+main = "worker.js"
+compatibility_date = "2024-09-23"
+
+# Despliega con:  wrangler deploy
+# La variable secreta OPENROUTER_API_KEY se configura con:
+#   wrangler secret put OPENROUTER_API_KEY
+# (te pedirá pegar tu clave de https://openrouter.ai/keys)
+#
+# Modelo por defecto: meta-llama/llama-3.1-8b-instruct (gratis en OpenRouter).
+# Para cambiarlo, define la variable OPENROUTER_MODEL con wrangler secret put OPENROUTER_MODEL

@@ -189,6 +189,11 @@
 
   let pendingAttachment = null; // {type:'image'|'file', name, dataUrl?}
 
+  // URL del proxy Cloudflare Worker (IA real vía OpenRouter).
+  // Déjala vacía ("") para usar el modo demo. Pon aquí tu Worker al desplegarlo.
+  const TERMINAL_PROXY_URL = "";
+  const chatHistory = []; // contexto para la IA real
+
   function addMessage(role, html) {
     const wrap = document.createElement("div");
     wrap.className = "msg " + role;
@@ -215,20 +220,47 @@
     }
     if (text) body += (body ? "<br>" : "") + escapeHtml(text);
     addMessage("user", body);
+    chatHistory.push({ role: "user", content: text || "(adjunto)" });
+
     termText.value = "";
     pendingAttachment = null;
     attachName.textContent = "";
     autoGrow();
 
-    // respuesta de muestra (placeholder, sin IA real)
-    setTimeout(() => {
-      const samples = [
-        "Recibido. Esta es una demo visual: aún no hay un modelo de IA conectado, pero la interfaz ya funciona igual que un chat real.",
-        "Buena pregunta sobre tecnología. Cuando conectemos la IA (vía API + proxy), responderé de verdad aquí mismo.",
-        "Entendido. Puedes adjuntar imágenes o archivos con los botones de abajo, como en GPT o Gemini.",
-      ];
-      addMessage("bot", samples[Math.floor(Math.random() * samples.length)]);
-    }, 500);
+    // Si hay proxy configurado -> IA real; si no -> modo demo
+    if (TERMINAL_PROXY_URL) {
+      const typing = document.createElement("div");
+      typing.className = "msg bot";
+      typing.innerHTML = '<div class="avatar">BF</div><div class="bubble">…</div>';
+      termChat.appendChild(typing);
+      termChat.scrollTop = termChat.scrollHeight;
+
+      fetch(TERMINAL_PROXY_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, history: chatHistory }),
+      })
+        .then((r) => r.json())
+        .then((data) => {
+          const reply = data.reply || "(sin respuesta de la IA)";
+          typing.querySelector(".bubble").innerHTML = escapeHtml(reply);
+          chatHistory.push({ role: "assistant", content: reply });
+        })
+        .catch(() => {
+          typing.querySelector(".bubble").textContent = "No se pudo conectar con la IA. Revisa el proxy.";
+        });
+    } else {
+      setTimeout(() => {
+        const samples = [
+          "Recibido. Esta es una demo visual: aún no hay un modelo de IA conectado, pero la interfaz ya funciona igual que un chat real.",
+          "Buena pregunta sobre tecnología. Cuando conectemos la IA (vía API + proxy), responderé de verdad aquí mismo.",
+          "Entendido. Puedes adjuntar imágenes o archivos con los botones de abajo, como en GPT o Gemini.",
+        ];
+        const reply = samples[Math.floor(Math.random() * samples.length)];
+        addMessage("bot", reply);
+        chatHistory.push({ role: "assistant", content: reply });
+      }, 500);
+    }
   }
 
   termSend.addEventListener("click", sendMessage);
