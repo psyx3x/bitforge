@@ -5,6 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>BitForge — Noticias</title>
 <meta name="description" content="Noticias de informática, Linux, IA y Flipper Zero, día a día." />
+<link rel="alternate" type="application/rss+xml" title="BitForge Noticias" href="rss.xml" />
 <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -31,6 +32,12 @@
   <h2 class="section-title" data-reveal>Noticias de BitForge</h2>
   <p class="section-lead" data-reveal>Actualizado día a día. Las novedades más recientes, arriba.</p>
 
+  <!-- Buscador (estilo WordPress) -->
+  <div class="news-search-wrap">
+    <input type="search" id="newsSearch" class="news-search" placeholder="Buscar en las noticias…" />
+  </div>
+
+  <!-- Filtros por tag -->
   <div class="tag-filter" id="tagFilter">
     <button class="tag-btn active" data-filter="all">Todas</button>
     <button class="tag-btn" data-filter="ia">IA</button>
@@ -39,53 +46,81 @@
     <button class="tag-btn" data-filter="cloudflare">Cloudflare</button>
   </div>
 
-  <div class="news-feed" id="newsFeed">
+  <div class="news-layout">
+    <!-- COLUMNA PRINCIPAL -->
+    <div class="news-main">
+      <div class="news-feed" id="newsFeed">
 
-    <article class="post" data-tags="internet cloudflare">
-      <div class="post-meta"><span class="post-date">19 AGO 2026</span>
-        <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
-        <a class="tag" href="noticias.html?tag=cloudflare">CLOUDFLARE</a>
-      </div>
-      <h3 class="post-title">Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</h3>
-      <p class="post-body">Cloudflare presenta un cambio que promete alterar cómo funciona internet y, sobre todo, cómo se monetiza el contenido. En el vídeo se explica un modelo nuevo mediante el cual los creadores y sitios web podrán obtener ingresos de una forma distinta a la publicidad tradicional. Aquí el resumen y el enlace al análisis completo:</p>
-      <div class="post-video">
-        <iframe src="https://www.youtube-nocookie.com/embed/qT784npVXF4" title="Cloudflare va a cambiar internet para siempre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
-      </div>
-    </article>
+        <article class="post" data-tags="internet cloudflare">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+            <a class="tag" href="noticias.html?tag=cloudflare">CLOUDFLARE</a>
+          </div>
+          <h3 class="post-title">Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</h3>
+          <p class="post-body">Cloudflare presenta un cambio que promete alterar cómo funciona internet y, sobre todo, cómo se monetiza el contenido. En el vídeo se explica un modelo nuevo mediante el cual los creadores y sitios web podrán obtener ingresos de una forma distinta a la publicidad tradicional. Aquí el resumen y el enlace al análisis completo:</p>
+          <div class="post-video">
+            <iframe src="https://www.youtube-nocookie.com/embed/qT784npVXF4" title="Cloudflare va a cambiar internet para siempre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </article>
 
-    <article class="post" data-tags="web ia">
-      <div class="post-meta"><span class="post-date">19 AGO 2026</span>
-        <a class="tag" href="noticias.html?tag=web">WEB</a>
-        <a class="tag" href="noticias.html?tag=ia">IA</a>
-      </div>
-      <h3 class="post-title">BitForge estrena Terminal con IA y buscador de noticias</h3>
-      <p class="post-body">La web ahora incluye una pestaña <strong>Terminal</strong> con apariencia de chat (estilo GPT/Gemini) que responde con IA real vía OpenRouter. La IA puede leer esta misma sección de noticias y contestar a preguntas como "¿qué hay de nuevo?". También sumamos esta página de noticias, donde iremos publicando novedades día a día sobre Linux, IA y Flipper Zero.</p>
-    </article>
+        <article class="post" data-tags="web ia">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=web">WEB</a>
+            <a class="tag" href="noticias.html?tag=ia">IA</a>
+          </div>
+          <h3 class="post-title">BitForge estrena Terminal con IA y buscador de noticias</h3>
+          <p class="post-body">La web ahora incluye una pestaña <strong>Terminal</strong> con apariencia de chat (estilo GPT/Gemini) que responde con IA real vía OpenRouter. La IA puede leer esta misma sección de noticias y contestar a preguntas como "¿qué hay de nuevo?". También sumamos esta página de noticias, donde iremos publicando novedades día a día sobre Linux, IA y Flipper Zero.</p>
+        </article>
 
-    <!-- ============================================================
-         PLANTILLA: copia este bloque <article> y pégalo encima
-         del anterior para añadir una noticia nueva.
-         Pon las tags en data-tags (minúsculas, separadas por espacio)
-         y repite los <a class="tag" href="noticias.html?tag=xxx">.
-    ============================================================ -->
-    <article class="post" data-tags="ejemplo">
-      <div class="post-meta"><span class="post-date">18 AGO 2026</span>
-        <a class="tag" href="noticias.html?tag=ejemplo">EJEMPLO</a>
-      </div>
-      <h3 class="post-title">Título de la noticia</h3>
-      <p class="post-body">Escribe aquí el texto de la noticia. Puedes añadir varios párrafos. Para enlazar a una fuente usa
-      <a href="https://example.com" target="_blank" rel="noopener noreferrer">este formato de enlace</a>.</p>
-    </article>
-    <!-- FIN PLANTILLA -->
+        <!-- ============================================================
+             PLANTILLA: copia este bloque <article> y pégalo encima
+             del anterior para añadir una noticia nueva.
+             Pon las tags en data-tags (minúsculas, separadas por espacio)
+             y repite los <a class="tag" href="noticias.html?tag=xxx">.
+        ============================================================ -->
+        <article class="post" data-tags="ejemplo">
+          <div class="post-meta"><span class="post-date">18 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=ejemplo">EJEMPLO</a>
+          </div>
+          <h3 class="post-title">Título de la noticia</h3>
+          <p class="post-body">Escribe aquí el texto de la noticia. Puedes añadir varios párrafos. Para enlazar a una fuente usa
+          <a href="https://example.com" target="_blank" rel="noopener noreferrer">este formato de enlace</a>.</p>
+        </article>
+        <!-- FIN PLANTILLA -->
 
-    <article class="post" data-tags="ia">
-      <div class="post-meta"><span class="post-date">17 AGO 2026</span>
-        <a class="tag" href="noticias.html?tag=ia">IA</a>
-      </div>
-      <h3 class="post-title">BitForge abre su Terminal de demostración</h3>
-      <p class="post-body">Añadimos una pestaña "Terminal" con apariencia de chat (estilo GPT/Gemini) para probar la interfaz de conversación. Por ahora es solo visual; la IA real llegará conectando una API.</p>
-    </article>
+        <article class="post" data-tags="ia">
+          <div class="post-meta"><span class="post-date">17 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=ia">IA</a>
+          </div>
+          <h3 class="post-title">BitForge abre su Terminal de demostración</h3>
+          <p class="post-body">Añadimos una pestaña "Terminal" con apariencia de chat (estilo GPT/Gemini) para probar la interfaz de conversación. Por ahora es solo visual; la IA real llegaría conectando una API.</p>
+        </article>
 
+      </div>
+
+      <!-- Paginación -->
+      <div class="pager" id="pager"></div>
+
+      <!-- Comentarios (Giscus) -->
+      <div class="comments-title">💬 Comentarios</div>
+      <div class="giscus" id="giscus-container"></div>
+    </div>
+
+    <!-- SIDEBAR -->
+    <aside class="news-side">
+      <div class="side-box">
+        <h4 class="side-title">Etiquetas</h4>
+        <div class="tag-cloud" id="tagCloud"></div>
+      </div>
+      <div class="side-box">
+        <h4 class="side-title">Últimas noticias</h4>
+        <div class="recent-list" id="recentList"></div>
+      </div>
+      <div class="side-box">
+        <h4 class="side-title">Suscríbete</h4>
+        <a class="rss-link" href="rss.xml" target="_blank" rel="noopener noreferrer">📡 RSS feed</a>
+      </div>
+    </aside>
   </div>
 </section>
 

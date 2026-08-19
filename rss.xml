@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>BitForge — Noticias</title>
+    <link>https://psyx3x.github.io/bitforge/noticias.html</link>
+    <description>Noticias de informática, Linux, IA y Flipper Zero, día a día.</description>
+    <language>es-es</language>
+    <lastBuildDate>Tue, 19 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</title>
+      <link>https://psyx3x.github.io/bitforge/noticias.html?tag=cloudflare</link>
+      <description>Cloudflare presenta un cambio que promete alterar cómo funciona internet y cómo se monetiza el contenido. Análisis del nuevo modelo.</description>
+      <pubDate>Tue, 19 Aug 2026 00:00:00 +0000</pubDate>
+      <category>Cloudflare</category>
+      <category>Internet</category>
+    </item>
+    <item>
+      <title>BitForge estrena Terminal con IA y buscador de noticias</title>
+      <link>https://psyx3x.github.io/bitforge/noticias.html?tag=ia</link>
+      <description>La web ahora incluye una Terminal con IA real vía OpenRouter y buscador de noticias publicadas.</description>
+      <pubDate>Tue, 19 Aug 2026 00:00:00 +0000</pubDate>
+      <category>Web</category>
+      <category>IA</category>
+    </item>
+    <item>
+      <title>BitForge abre su Terminal de demostración</title>
+      <link>https://psyx3x.github.io/bitforge/noticias.html?tag=ia</link>
+      <description>Primera versión de la Terminal con apariencia de chat estilo GPT/Gemini.</description>
+      <pubDate>Mon, 17 Aug 2026 00:00:00 +0000</pubDate>
+      <category>IA</category>
+    </item>
+  </channel>
+</rss>
