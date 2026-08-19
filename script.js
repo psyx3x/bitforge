@@ -158,6 +158,7 @@
   wireDropdown("navIa", "navIaTrigger");
   wireDropdown("navLinux", "navLinuxTrigger");
   wireDropdown("navFlipper", "navFlipperTrigger");
+  wireDropdown("navTrading", "navTradingTrigger");
 
   /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
   const termOpen = document.getElementById("terminalOpen");
