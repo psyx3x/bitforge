@@ -31,10 +31,21 @@
   <h2 class="section-title" data-reveal>Noticias de BitForge</h2>
   <p class="section-lead" data-reveal>Actualizado día a día. Las novedades más recientes, arriba.</p>
 
+  <div class="tag-filter" id="tagFilter">
+    <button class="tag-btn active" data-filter="all">Todas</button>
+    <button class="tag-btn" data-filter="ia">IA</button>
+    <button class="tag-btn" data-filter="web">Web</button>
+    <button class="tag-btn" data-filter="internet">Internet</button>
+    <button class="tag-btn" data-filter="cloudflare">Cloudflare</button>
+  </div>
+
   <div class="news-feed" id="newsFeed">
 
-    <article class="post">
-      <div class="post-meta"><span class="post-date">19 AGO 2026</span><span class="tag">INTERNET</span><span class="tag">CLOUDFLARE</span></div>
+    <article class="post" data-tags="internet cloudflare">
+      <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+        <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+        <a class="tag" href="noticias.html?tag=cloudflare">CLOUDFLARE</a>
+      </div>
       <h3 class="post-title">Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</h3>
       <p class="post-body">Cloudflare presenta un cambio que promete alterar cómo funciona internet y, sobre todo, cómo se monetiza el contenido. En el vídeo se explica un modelo nuevo mediante el cual los creadores y sitios web podrán obtener ingresos de una forma distinta a la publicidad tradicional. Aquí el resumen y el enlace al análisis completo:</p>
       <div class="post-video">
@@ -42,8 +53,11 @@
       </div>
     </article>
 
-    <article class="post">
-      <div class="post-meta"><span class="post-date">19 AGO 2026</span><span class="tag">WEB</span></div>
+    <article class="post" data-tags="web ia">
+      <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+        <a class="tag" href="noticias.html?tag=web">WEB</a>
+        <a class="tag" href="noticias.html?tag=ia">IA</a>
+      </div>
       <h3 class="post-title">BitForge estrena Terminal con IA y buscador de noticias</h3>
       <p class="post-body">La web ahora incluye una pestaña <strong>Terminal</strong> con apariencia de chat (estilo GPT/Gemini) que responde con IA real vía OpenRouter. La IA puede leer esta misma sección de noticias y contestar a preguntas como "¿qué hay de nuevo?". También sumamos esta página de noticias, donde iremos publicando novedades día a día sobre Linux, IA y Flipper Zero.</p>
     </article>
@@ -51,18 +65,23 @@
     <!-- ============================================================
          PLANTILLA: copia este bloque <article> y pégalo encima
          del anterior para añadir una noticia nueva.
-         Cambia la fecha, el tag y el texto.
+         Pon las tags en data-tags (minúsculas, separadas por espacio)
+         y repite los <a class="tag" href="noticias.html?tag=xxx">.
     ============================================================ -->
-    <article class="post">
-      <div class="post-meta"><span class="post-date">18 AGO 2026</span><span class="tag">EJEMPLO</span></div>
+    <article class="post" data-tags="ejemplo">
+      <div class="post-meta"><span class="post-date">18 AGO 2026</span>
+        <a class="tag" href="noticias.html?tag=ejemplo">EJEMPLO</a>
+      </div>
       <h3 class="post-title">Título de la noticia</h3>
       <p class="post-body">Escribe aquí el texto de la noticia. Puedes añadir varios párrafos. Para enlazar a una fuente usa
       <a href="https://example.com" target="_blank" rel="noopener noreferrer">este formato de enlace</a>.</p>
     </article>
     <!-- FIN PLANTILLA -->
 
-    <article class="post">
-      <div class="post-meta"><span class="post-date">17 AGO 2026</span><span class="tag">IA</span></div>
+    <article class="post" data-tags="ia">
+      <div class="post-meta"><span class="post-date">17 AGO 2026</span>
+        <a class="tag" href="noticias.html?tag=ia">IA</a>
+      </div>
       <h3 class="post-title">BitForge abre su Terminal de demostración</h3>
       <p class="post-body">Añadimos una pestaña "Terminal" con apariencia de chat (estilo GPT/Gemini) para probar la interfaz de conversación. Por ahora es solo visual; la IA real llegará conectando una API.</p>
     </article>
@@ -77,5 +96,6 @@
 
 <script src="script.js"></script>
 <script src="bg-figures.js"></script>
+<script src="noticias.js"></script>
 </body>
 </html>
