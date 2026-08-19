@@ -295,4 +295,25 @@
     attachName.textContent = "📎 " + f.name;
     fileAny.value = "";
   });
+
+  /* ---- Panel Flipper Zero (cuadros temáticos) ---- */
+  const fzOpen = document.getElementById("flipperOpen");
+  const fzClose = document.getElementById("flipperClose");
+  const fzOverlay = document.getElementById("flipperOverlay");
+
+  function openFlipper() {
+    fzOverlay.classList.add("open");
+    fzOverlay.setAttribute("aria-hidden", "false");
+  }
+  function closeFlipper() {
+    fzOverlay.classList.remove("open");
+    fzOverlay.setAttribute("aria-hidden", "true");
+  }
+  if (fzOpen) {
+    fzOpen.addEventListener("click", (e) => { e.preventDefault(); openFlipper(); });
+  }
+  if (fzClose) fzClose.addEventListener("click", closeFlipper);
+  if (fzOverlay) {
+    fzOverlay.addEventListener("click", (e) => { if (e.target === fzOverlay) closeFlipper(); });
+  }
 })();
