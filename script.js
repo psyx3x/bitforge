@@ -190,8 +190,7 @@
   let pendingAttachment = null; // {type:'image'|'file', name, dataUrl?}
 
   // URL del proxy Cloudflare Worker (IA real vía OpenRouter).
-  // Déjala vacía ("") para usar el modo demo. Pon aquí tu Worker al desplegarlo.
-  const TERMINAL_PROXY_URL = "";
+  const TERMINAL_PROXY_URL = "https://bitforge-terminal.n4rvik.workers.dev";
   const chatHistory = []; // contexto para la IA real
 
   function addMessage(role, html) {
