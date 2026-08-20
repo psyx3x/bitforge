@@ -429,6 +429,7 @@ body::before{
 .strat{margin-top:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,.08)}
 .strat:first-of-type{border-top:none;padding-top:0;margin-top:8px}
 .strat h4{font-size:1.05rem;color:var(--accent);margin-bottom:8px}
+.strat .sub{font-size:.95rem;color:#fff;font-weight:700;margin:18px 0 6px}
 .strat ul{margin:8px 0 8px 18px;color:var(--muted);font-size:.9rem;line-height:1.6}
 .strat li{margin-bottom:4px}
 .trade-note{font-size:.82rem;color:#ffcf86;background:rgba(255,180,80,.08);
