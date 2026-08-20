@@ -160,9 +160,9 @@
      Requiere que CREES el repo de comentarios en giscus.app y pegues tu
      repo de GitHub abajo. Mientras tanto, muestra un aviso.
      Web: https://giscus.app */
-  const GISCUS_REPO = "psyx3x/bitforge"; // mismo repo
-  const GISCUS_REPO_ID = ""; // pégalo desde giscus.app
-  const GISCUS_CATEGORY_ID = ""; // pégalo desde giscus.app
+  const GISCUS_REPO = "psyx3x/bitforge";
+  const GISCUS_REPO_ID = "R_kgDOT7w2Qg";
+  const GISCUS_CATEGORY_ID = "DIC_kwDOT7w2Qs4DD0vV"; // General
   const container = document.getElementById("giscus-container");
   if (container && GISCUS_REPO_ID && GISCUS_CATEGORY_ID) {
     const s = document.createElement("script");

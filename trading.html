@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BitForge — Trading</title>
+<meta name="description" content="Trading: estrategias, cripto, mercado tradicional y análisis fundamental." />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="iaSparks"></canvas>
+<canvas id="iaSmoke"></canvas>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="brand"><span class="brand-mark">&lt;/&gt;</span> BitForge</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#temas">Temas</a>
+    <a href="index.html#linux">Linux</a>
+    <a href="index.html#flipper">Flipper Zero</a>
+    <a href="index.html#ia">IA</a>
+    <a href="trading.html">Trading</a>
+    <a href="index.html#tutoriales">Tutoriales</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="#novedades">Novedades</a>
+    <a href="#" id="terminalOpen">Terminal</a>
+    <input type="search" id="heroSearch" class="nav-search" placeholder="🔍 Buscar…" aria-label="Buscar" />
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<section class="section">
+  <h2 class="section-title" data-reveal>Trading</h2>
+  <p class="section-lead" data-reveal>Estrategias, cripto, mercado tradicional y análisis fundamental. Contenido en construcción: vamos rellenando poco a poco.</p>
+
+  <div class="trading-grid">
+    <article class="trade-card">
+      <div class="trade-icon">📐</div>
+      <h3>Estrategias</h3>
+      <p>Planes de acción para entrar y salir del mercado: breakouts, medias móviles, scalping, swing trading y gestión del riesgo. Aquí iremos dejando setups explicados paso a paso.</p>
+      <span class="trade-tag">Próximamente</span>
+    </article>
+
+    <article class="trade-card">
+      <div class="trade-icon">🪙</div>
+      <h3>Cripto</h3>
+      <p>Bitcoin, Ethereum y altcoins: qué son, cómo se mueven y cómo leer el orden book. Sin humo ni pumps: datos y criterio para no perder la camiseta.</p>
+      <span class="trade-tag">Próximamente</span>
+    </article>
+
+    <article class="trade-card">
+      <div class="trade-icon">📊</div>
+      <h3>Mercado tradicional</h3>
+      <p>Acciones, índices, forex y materias primas. Cómo funciona una sesión, qué son los spreads y por qué el volumen importa tanto como el precio.</p>
+      <span class="trade-tag">Próximamente</span>
+    </article>
+
+    <article class="trade-card">
+      <div class="trade-icon">🔎</div>
+      <h3>Fundamental</h3>
+      <p>Leer balances, beneficios, deuda y noticias reales para valorar si algo vale lo que cuesta. El análisis que mira la empresa, no solo la vela.</p>
+      <span class="trade-tag">Próximamente</span>
+    </article>
+  </div>
+
+  <p class="dim" style="text-align:center;margin-top:30px">⚠️ Esto no es asesoramiento financiero. Información educativa.</p>
+</section>
+
+<footer class="footer">
+  <p>BitForge · Hecho para curiosos de la tecnología</p>
+  <p class="dim">Proyecto web estático · sin dependencias externas</p>
+</footer>
+
+<script src="script.js"></script>
+<script src="bg-figures.js"></script>
+</body>
+</html>
