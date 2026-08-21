@@ -78,6 +78,8 @@ body::before{
 .eyebrow{color:var(--accent-3);font-weight:600;letter-spacing:2px;text-transform:uppercase;font-size:.8rem;margin-bottom:18px}
 .hero-title{font-size:clamp(2.4rem,6vw,4.6rem);line-height:1.05;font-weight:800;letter-spacing:-1px}
 .grad{background:linear-gradient(120deg,var(--accent),var(--accent-2) 50%,var(--accent-3));-webkit-background-clip:text;background-clip:text;color:transparent}
+/* el sufijo "ía" de tecnología en teal para el juego de palabras tecnolo-IA */
+.ia-suf{background:none;color:#27e0c0;-webkit-text-fill-color:#27e0c0}
 .hero-sub{color:var(--muted);font-size:clamp(1rem,2vw,1.2rem);margin:22px auto 34px;max-width:620px}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn{display:inline-block;padding:14px 28px;border-radius:999px;text-decoration:none;font-weight:600;transition:transform .2s,box-shadow .2s,background .2s;will-change:transform}
