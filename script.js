@@ -155,9 +155,40 @@
       setTimeout(() => dd.classList.remove("evaporating"), 650);
     });
   }
+  function wireSubmenu(wrapId, triggerId) {
+    const wrap = document.getElementById(wrapId);
+    const trigger = document.getElementById(triggerId);
+    if (!wrap || !trigger) return;
+    const dd = wrap.querySelector(".ia-sub-dropdown");
+    if (!dd) return;
+    trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      const isOpen = wrap.classList.contains("open-sub");
+      // cierra otros submenus hermanos
+      wrap.parentElement.querySelectorAll(".ia-submenu").forEach((s) => {
+        if (s !== wrap) s.classList.remove("open-sub");
+      });
+      wrap.classList.toggle("open-sub", !isOpen);
+    });
+    // cerrar al hacer clic fuera
+    document.addEventListener("click", (e) => {
+      if (wrap.classList.contains("open-sub") && !wrap.contains(e.target)) {
+        wrap.classList.remove("open-sub");
+      }
+    });
+    // al pulsar un enlace interior, se cierra
+    dd.querySelectorAll(".ia-item").forEach((it) =>
+      it.addEventListener("click", () => wrap.classList.remove("open-sub"))
+    );
+  }
+
   wireDropdown("navIa", "navIaTrigger");
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
+  wireSubmenu("linuxSub", "linuxSubTrigger");
+  wireSubmenu("arduinoSub", "arduinoSubTrigger");
+  wireSubmenu("firmwareSub", "firmwareSubTrigger");
 
   /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
   const termOpen = document.getElementById("terminalOpen");
