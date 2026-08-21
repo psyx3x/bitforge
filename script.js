@@ -159,6 +159,19 @@
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
 
+  /* Linux (hover): mantener distros un momento al salir del raton */
+  const linuxSub = document.getElementById("linuxSub");
+  if (linuxSub) {
+    let linuxTimer = null;
+    linuxSub.addEventListener("mouseenter", () => {
+      clearTimeout(linuxTimer);
+      linuxSub.classList.add("keep");
+    });
+    linuxSub.addEventListener("mouseleave", () => {
+      linuxTimer = setTimeout(() => linuxSub.classList.remove("keep"), 900);
+    });
+  }
+
   /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
   const termOpen = document.getElementById("terminalOpen");
   const termClose = document.getElementById("terminalClose");
