@@ -254,7 +254,7 @@ body::before{
 }
 .ia-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.05)}
 
-/* distros de Linux: al pasar el raton por encima de Linux, submenu flotante a la derecha */
+/* distros de Linux: al DARLE (clic) a Linux, submenu flotante a la derecha */
 .ia-sublist{position:relative}
 .ia-has-sub{cursor:pointer}
 .ia-sub-items{
@@ -267,7 +267,7 @@ body::before{
   transform:translateX(-10px);
   transition:opacity .18s ease,transform .18s ease,visibility .18s;
 }
-.ia-sublist:hover .ia-sub-items{
+.ia-sublist.open .ia-sub-items{
   opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0);
 }
 .ia-sub-items .ia-item{opacity:1;transform:none;font-size:.9rem;font-weight:500;
