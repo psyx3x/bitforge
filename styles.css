@@ -254,25 +254,6 @@ body::before{
 }
 .ia-item:not(:last-child){border-bottom:1px solid rgba(255,255,255,.05)}
 
-/* submenu anidado (2 niveles): Hacking > Linux/Arduino/Firmwares > hijos */
-/* abre SOLO al pulsar el trigger (toggle), no por hover, para evitar solapes */
-.ia-submenu{position:relative}
-.ia-sub-dropdown{
-  position:absolute;left:100%;top:-6px;min-width:210px;
-  background:rgba(12,16,26,.98);backdrop-filter:blur(16px);
-  border:1px solid var(--border);border-radius:14px;
-  padding:8px;box-shadow:0 18px 50px rgba(0,0,0,.65), 0 0 0 1px rgba(91,140,255,.12);
-  opacity:0;visibility:hidden;pointer-events:none;
-  transform:translateX(-10px);
-  transition:opacity .18s ease,transform .18s ease,visibility .18s;
-}
-.ia-submenu.open-sub .ia-sub-dropdown{
-  opacity:1;visibility:visible;pointer-events:auto;transform:translateX(0);
-}
-.ia-sub-dropdown .ia-item{opacity:1;transform:none;transition:background .18s,color .18s,padding-left .18s}
-.ia-sub-dropdown .ia-item:hover{background:linear-gradient(90deg,rgba(91,140,255,.22),rgba(160,107,255,.10));color:#fff;padding-left:24px}
-.ia-has-sub{cursor:pointer}
-
 /* flechita hacia arriba */
 .ia-dropdown .ia-arrow{
   content:"";position:absolute;top:-7px;left:50%;transform:translateX(-50%);
