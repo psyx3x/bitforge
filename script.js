@@ -159,8 +159,8 @@
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
 
-  /* Linux y Gadgets (hover): mantener submenus un momento al salir del raton */
-  ["linuxSub", "gadgetsSub"].forEach((id) => {
+  /* Linux, Gadgets e IA (hover): mantener submenus un momento al salir del raton */
+  ["linuxSub", "gadgetsSub", "iaSub"].forEach((id) => {
     const sub = document.getElementById(id);
     if (!sub) return;
     let t = null;
