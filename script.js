@@ -159,18 +159,14 @@
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
 
-  /* Linux (hover): mantener distros un momento al salir del raton */
-  const linuxSub = document.getElementById("linuxSub");
-  if (linuxSub) {
-    let linuxTimer = null;
-    linuxSub.addEventListener("mouseenter", () => {
-      clearTimeout(linuxTimer);
-      linuxSub.classList.add("keep");
-    });
-    linuxSub.addEventListener("mouseleave", () => {
-      linuxTimer = setTimeout(() => linuxSub.classList.remove("keep"), 1500);
-    });
-  }
+  /* Linux y Gadgets (hover): mantener submenus un momento al salir del raton */
+  ["linuxSub", "gadgetsSub"].forEach((id) => {
+    const sub = document.getElementById(id);
+    if (!sub) return;
+    let t = null;
+    sub.addEventListener("mouseenter", () => { clearTimeout(t); sub.classList.add("keep"); });
+    sub.addEventListener("mouseleave", () => { t = setTimeout(() => sub.classList.remove("keep"), 1500); });
+  });
 
   /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
   const termOpen = document.getElementById("terminalOpen");
