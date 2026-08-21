@@ -126,13 +126,16 @@
     if (!wrap || !trigger) return;
     const dd = wrap.querySelector(".ia-dropdown");
     trigger.addEventListener("click", (e) => {
-      if (window.innerWidth > 820) {
+      // Si el trigger apunta a una pagina real (no ancla #...), dejamos navegar
+      const href = trigger.getAttribute("href") || "";
+      if (window.innerWidth > 820 && href.startsWith("#")) {
         e.preventDefault();
         e.stopPropagation();
         const willOpen = !wrap.classList.contains("open");
         wrap.classList.toggle("open");
         if (willOpen) burstSparks(trigger);
       }
+      // si href es una pagina (ej hacking.html), NO hacemos preventDefault => navega
     });
     document.addEventListener("click", (e) => {
       if (wrap.classList.contains("open") && !wrap.contains(e.target)) {
