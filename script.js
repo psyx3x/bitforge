@@ -156,7 +156,6 @@
     });
   }
   wireDropdown("navIa", "navIaTrigger");
-  wireDropdown("navLinux", "navLinuxTrigger");
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
 
