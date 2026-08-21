@@ -159,14 +159,33 @@
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
 
-  /* Linux, Gadgets e IA (hover): mantener submenus un momento al salir del raton */
-  ["linuxSub", "gadgetsSub", "iaSub"].forEach((id) => {
+  /* Linux y Gadgets (hover): mantener submenus un momento al salir del raton */
+  ["linuxSub", "gadgetsSub"].forEach((id) => {
     const sub = document.getElementById(id);
     if (!sub) return;
     let t = null;
     sub.addEventListener("mouseenter", () => { clearTimeout(t); sub.classList.add("keep"); });
     sub.addEventListener("mouseleave", () => { t = setTimeout(() => sub.classList.remove("keep"), 1500); });
   });
+
+  /* IA: al DARLE CLIC a Ollama, muestra los modelos */
+  const iaToggle = document.getElementById("iaToggle");
+  const iaSub = document.getElementById("iaSub");
+  if (iaToggle && iaSub) {
+    iaToggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      iaSub.classList.toggle("keep");
+    });
+    document.addEventListener("click", (e) => {
+      if (iaSub.classList.contains("keep") && !iaSub.contains(e.target)) {
+        iaSub.classList.remove("keep");
+      }
+    });
+    iaSub.querySelectorAll(".ia-item").forEach((it) =>
+      it.addEventListener("click", () => iaSub.classList.remove("keep"))
+    );
+  }
 
   /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
   const termOpen = document.getElementById("terminalOpen");
