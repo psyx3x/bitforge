@@ -159,25 +159,6 @@
   wireDropdown("navHacking", "navHackingTrigger");
   wireDropdown("navTrading", "navTradingTrigger");
 
-  /* Linux: al darle (clic) abre las distros en submenu flotante */
-  const linuxToggle = document.getElementById("linuxToggle");
-  const linuxSub = document.getElementById("linuxSub");
-  if (linuxToggle && linuxSub) {
-    linuxToggle.addEventListener("click", (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      linuxSub.classList.toggle("open");
-    });
-    document.addEventListener("click", (e) => {
-      if (linuxSub.classList.contains("open") && !linuxSub.contains(e.target)) {
-        linuxSub.classList.remove("open");
-      }
-    });
-    linuxSub.querySelectorAll(".ia-item").forEach((it) =>
-      it.addEventListener("click", () => linuxSub.classList.remove("open"))
-    );
-  }
-
   /* ---- Terminal (apariencia chat tipo GPT/Gemini) ---- */
   const termOpen = document.getElementById("terminalOpen");
   const termClose = document.getElementById("terminalClose");
