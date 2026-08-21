@@ -168,7 +168,7 @@
       linuxSub.classList.add("keep");
     });
     linuxSub.addEventListener("mouseleave", () => {
-      linuxTimer = setTimeout(() => linuxSub.classList.remove("keep"), 900);
+      linuxTimer = setTimeout(() => linuxSub.classList.remove("keep"), 1500);
     });
   }
 
