@@ -16,7 +16,81 @@
 
 <!-- ===== NAV (se carga desde nav.html para que sea igual en todas las paginas) ===== -->
 <header class="nav" id="nav">
-  <div id="navMount"></div>
+  <a href="#hero" class="brand"><span class="brand-mark">&lt;/&gt;</span> BitForge</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="#hero">Inicio</a>
+    <a href="#temas">Temas</a>
+    <span class="nav-ia" id="navHacking">
+      <a href="#hacking" class="nav-ia-trigger" id="navHackingTrigger">Hacking</a>
+      <span class="ia-dropdown" id="hackingDropdown">
+        <span class="ia-arrow"></span>
+        <span class="ia-sublist" id="linuxSub">
+          <a class="ia-item ia-has-sub" href="#linux">Linux ▸</a>
+          <span class="ia-sub-items" id="linuxItems">
+            <a class="ia-item" href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">Kali Linux</a>
+            <a class="ia-item" href="https://www.parrotsec.org/" target="_blank" rel="noopener noreferrer">Parrot Security</a>
+            <a class="ia-item" href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer">Ubuntu</a>
+            <a class="ia-item" href="https://www.debian.org/" target="_blank" rel="noopener noreferrer">Debian</a>
+            <a class="ia-item" href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer">Linux Mint</a>
+            <a class="ia-item" href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">Fedora</a>
+            <a class="ia-item" href="https://archlinux.org/" target="_blank" rel="noopener noreferrer">Arch Linux</a>
+          </span>
+        </span>
+        <a class="ia-item" href="#arduino">Arduino</a>
+        <a class="ia-item" href="#esp32">ESP32</a>
+        <a class="ia-item" href="#controladoras">Controladoras</a>
+        <span class="ia-sublist" id="gadgetsSub">
+          <a class="ia-item ia-has-sub" href="#gadgets">Gadgets ▸</a>
+          <span class="ia-sub-items" id="gadgetsItems">
+            <a class="ia-item" href="https://flipperzero.one/" target="_blank" rel="noopener noreferrer">Flipper Zero</a>
+            <a class="ia-item" href="https://github.com/flipperdevices/flipperzero-firmware" target="_blank" rel="noopener noreferrer">Flipper — Oficial</a>
+            <a class="ia-item" href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreferrer">Flipper — Unleashed</a>
+            <a class="ia-item" href="https://github.com/RogueMaster/flipperzero-firmware-wPlugins" target="_blank" rel="noopener noreferrer">Flipper — RogueMaster</a>
+            <a class="ia-item" href="https://github.com/Flipper-XFW/Xtreme-Firmware" target="_blank" rel="noopener noreferrer">Flipper — Xtreme</a>
+            <a class="ia-item" href="https://github.com/next-flip/momentum-firmware" target="_blank" rel="noopener noreferrer">Flipper — Momentum</a>
+            <a class="ia-item" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank" rel="noopener noreferrer">ESP32 — ESP-IDF</a>
+          </span>
+        </span>
+        <a class="ia-item" href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">Firmware</a>
+      </span>
+    </span>
+    <span class="nav-ia" id="navIa">
+      <a href="#ia" class="nav-ia-trigger" id="navIaTrigger">IA</a>
+      <span class="ia-dropdown" id="iaDropdown">
+        <span class="ia-arrow"></span>
+        <span class="ia-sublist" id="iaSub">
+          <a class="ia-item ia-has-sub" href="#" id="iaToggle">Ollama ▸</a>
+          <span class="ia-sub-items" id="iaItems">
+            <a class="ia-item" href="https://ollama.com/library/glm-5.2" target="_blank" rel="noopener noreferrer">glm-5.2</a>
+            <a class="ia-item" href="https://ollama.com/library/deepseek-v4-flash" target="_blank" rel="noopener noreferrer">deepseek-v4-flash</a>
+            <a class="ia-item" href="https://ollama.com/library/kimi-k3" target="_blank" rel="noopener noreferrer">kimi-k3</a>
+            <a class="ia-item" href="https://ollama.com/library/qwen3.8" target="_blank" rel="noopener noreferrer">qwen3.8</a>
+            <a class="ia-item" href="https://ollama.com/library/llama3.1" target="_blank" rel="noopener noreferrer">llama3.1</a>
+            <a class="ia-item" href="https://ollama.com/library/mistral" target="_blank" rel="noopener noreferrer">mistral</a>
+            <a class="ia-item" href="https://ollama.com/library/deepseek-coder" target="_blank" rel="noopener noreferrer">deepseek-coder</a>
+            <a class="ia-item" href="https://ollama.com/library/codellama" target="_blank" rel="noopener noreferrer">codellama</a>
+            <a class="ia-item" href="https://ollama.com/library/gemma2" target="_blank" rel="noopener noreferrer">gemma2</a>
+          </span>
+        </span>
+        <a class="ia-item" href="https://unvelai.com/ia/" target="_blank" rel="noopener noreferrer">Buscador de IA</a>
+      </span>
+    </span>
+    <span class="nav-ia" id="navTrading">
+      <a href="#trading" class="nav-ia-trigger" id="navTradingTrigger">Trading</a>
+      <span class="ia-dropdown" id="tradingDropdown">
+        <span class="ia-arrow"></span>
+        <a class="ia-item" href="trading.html#estrategias">Estrategias</a>
+        <a class="ia-item" href="trading.html#cripto">Cripto</a>
+        <a class="ia-item" href="trading.html#tradicional">Mercado tradicional</a>
+        <a class="ia-item" href="trading.html#fundamental">Fundamental</a>
+      </span>
+    </span>
+    <a href="#tutoriales">Tutoriales</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="#novedades">Novedades</a>
+    <a href="#" id="terminalOpen">Terminal</a>
+    <input type="search" id="heroSearch" class="nav-search" placeholder="🔍 Buscar…" aria-label="Buscar" />
+  </nav>
   <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
 </header>
 

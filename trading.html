@@ -222,5 +222,35 @@
 
 <script src="script.js"></script>
 <script src="bg-figures.js"></script>
+<div class="terminal-overlay" id="terminalOverlay" aria-hidden="true">
+  <div class="terminal-window" role="dialog" aria-label="BitForge Terminal">
+    <div class="terminal-head">
+      <div class="terminal-title">
+        <span class="terminal-dot"></span> BitForge <span class="dim">Terminal</span>
+      </div>
+      <button class="terminal-close" id="terminalClose" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="terminal-chat" id="terminalChat">
+      <div class="msg bot">
+        <div class="avatar">BF</div>
+        <div class="bubble">¡Hola! Soy la terminal de BitForge. Escribe aquí tu duda de Linux, IA o Flipper Zero. (Demo visual — aún sin IA conectada.)</div>
+      </div>
+    </div>
+    <div class="terminal-input">
+      <div class="attach-row">
+        <button class="attach-btn" title="Adjuntar imagen" id="attachImg">🖼️</button>
+        <button class="attach-btn" title="Adjuntar archivo" id="attachFile">📎</button>
+        <button class="attach-btn" title="Más" id="attachMore">➕</button>
+        <span class="attach-name" id="attachName"></span>
+      </div>
+      <div class="input-row">
+        <textarea id="terminalText" rows="1" placeholder="Escribe un mensaje…"></textarea>
+        <button class="send-btn" id="terminalSend">➤</button>
+      </div>
+      <input type="file" id="fileImg" accept="image/*" hidden />
+      <input type="file" id="fileAny" hidden />
+    </div>
+  </div>
+</div>
 </body>
 </html>
