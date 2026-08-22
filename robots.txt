@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://psyx3x.github.io/bitforge/sitemap.xml
