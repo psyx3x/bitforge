@@ -190,12 +190,20 @@
   const postModalBody = document.getElementById("postModalBody");
   const postModalClose = document.getElementById("postModalClose");
 
+  function slugify(s) {
+    return (s || "")
+      .toLowerCase()
+      .normalize("NFD").replace(/[̀-ͯ]/g, "") // quita acentos
+      .replace(/[^a-z0-9]+/g, "-")
+      .replace(/^-+|-+$/g, "");
+  }
   function openPost(article) {
     if (!postModal || !postModalBody || !article) return;
-    // cambiamos la URL de la barra a la de la noticia (sin recargar), estilo WordPress
-    const pid = article.id || "";
-    if (pid && history && history.pushState) {
-      history.pushState({ post: pid }, "", "#" + pid);
+    // cambiamos la URL de la barra a un slug legible de la noticia (estilo WordPress)
+    const titleEl = article.querySelector(".post-title");
+    const slug = slugify(titleEl ? titleEl.textContent : "") || article.id || "";
+    if (slug && history && history.pushState) {
+      history.pushState({ post: slug }, "", "#" + slug);
     }
     // clonamos el contenido del post (meta + título + cuerpo + vídeo)
     const clone = article.cloneNode(true);

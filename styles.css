@@ -392,6 +392,7 @@ body::before{
 .post-modal-body .post-thumb{max-width:100%}
 .post-modal-body .post-body{display:block;margin-top:10px}
 .read-more{display:inline-block;margin-top:6px;color:#27e0c0;font-weight:600;text-decoration:none;font-size:.95rem}
+a.read-more{color:#27e0c0}
 .read-more:hover{text-decoration:underline}
 
 /* ===== Filtros por tag (estilo WordPress) ===== */
