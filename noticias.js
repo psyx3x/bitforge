@@ -192,6 +192,11 @@
 
   function openPost(article) {
     if (!postModal || !postModalBody || !article) return;
+    // cambiamos la URL de la barra a la de la noticia (sin recargar), estilo WordPress
+    const pid = article.id || "";
+    if (pid && history && history.pushState) {
+      history.pushState({ post: pid }, "", "#" + pid);
+    }
     // clonamos el contenido del post (meta + título + cuerpo + vídeo)
     const clone = article.cloneNode(true);
     clone.classList.remove("hidden");
@@ -210,6 +215,10 @@
     postModal.classList.remove("open");
     postModal.setAttribute("aria-hidden", "true");
     document.body.style.overflow = "";
+    // volvemos la URL a la lista de noticias (sin recargar)
+    if (history && history.pushState) {
+      history.pushState({}, "", location.pathname + location.search);
+    }
   }
 
   document.querySelectorAll(".post-link").forEach((link) => {
