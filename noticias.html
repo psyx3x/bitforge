@@ -1,11 +1,547 @@
-<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8" /><meta name="viewport" content="width=device-width, initial-scale=1.0" /><title>BitForge — Noticias</title><meta name="description" content="Noticias de informática, Linux, IA y Flipper Zero, día a día." /><link rel="alternate" type="application/rss+xml" title="BitForge Noticias" href="rss.xml" /><link rel="stylesheet" href="styles.css" /></head><body><canvas id="bg"></canvas><div class="cursor-glow" id="cursorGlow"></div><canvas id="iaSparks"></canvas><canvas id="iaSmoke"></canvas><header class="nav" id="nav">  <a href="index.html" class="brand"><span class="brand-mark">&lt;/&gt;</span> BitForge</a>  <nav class="nav-links" id="navLinks">    <a href="index.html">Inicio</a>    <a href="index.html#temas">Temas</a>    <span class="nav-ia" id="navHacking">      <a href="hacking.html" class="nav-ia-trigger" id="navHackingTrigger">Hacking</a>      <span class="ia-dropdown" id="hackingDropdown">        <span class="ia-arrow"></span>        <span class="ia-sublist" id="linuxSub">          <a class="ia-item ia-has-sub" href="index.html#linux">Linux ▸</a>          <span class="ia-sub-items" id="linuxItems">            <a class="ia-item" href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">Kali Linux</a>            <a class="ia-item" href="https://www.parrotsec.org/" target="_blank" rel="noopener noreferrer">Parrot Security</a>            <a class="ia-item" href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer">Ubuntu</a>            <a class="ia-item" href="https://www.debian.org/" target="_blank" rel="noopener noreferrer">Debian</a>            <a class="ia-item" href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer">Linux Mint</a>            <a class="ia-item" href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">Fedora</a>            <a class="ia-item" href="https://archlinux.org/" target="_blank" rel="noopener noreferrer">Arch Linux</a>          </span>        </span>        <a class="ia-item" href="index.html#arduino">Arduino</a>        <a class="ia-item" href="index.html#esp32">ESP32</a>        <a class="ia-item" href="index.html#controladoras">Controladoras</a>        <span class="ia-sublist" id="gadgetsSub">          <a class="ia-item ia-has-sub" href="index.html#gadgets">Gadgets ▸</a>          <span class="ia-sub-items" id="gadgetsItems">            <a class="ia-item" href="https://flipperzero.one/" target="_blank" rel="noopener noreferrer">Flipper Zero</a>            <a class="ia-item" href="https://github.com/flipperdevices/flipperzero-firmware" target="_blank" rel="noopener noreferrer">Flipper — Oficial</a>            <a class="ia-item" href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreferrer">Flipper — Unleashed</a>            <a class="ia-item" href="https://github.com/RogueMaster/flipperzero-firmware-wPlugins" target="_blank" rel="noopener noreferrer">Flipper — RogueMaster</a>            <a class="ia-item" href="https://github.com/Flipper-XFW/Xtreme-Firmware" target="_blank" rel="noopener noreferrer">Flipper — Xtreme</a>            <a class="ia-item" href="https://github.com/next-flip/momentum-firmware" target="_blank" rel="noopener noreferrer">Flipper — Momentum</a>            <a class="ia-item" href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">Flipper — Bruce</a>            <a class="ia-item" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank" rel="noopener noreferrer">ESP32 — ESP-IDF</a>          </span>        </span>        <a class="ia-item" href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">Firmware</a>        <a class="ia-item" href="https://github.com/bigbrodude6119/flipper-zero-evil-portal" target="_blank" rel="noopener noreferrer">Evil Portal</a>        <a class="ia-item" href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" rel="noopener noreferrer">WiFi Marauder</a>      </span>    </span>    <span class="nav-ia" id="navIa">      <a href="index.html#ia" class="nav-ia-trigger" id="navIaTrigger">IA</a>      <span class="ia-dropdown" id="iaDropdown">        <span class="ia-arrow"></span>        <span class="ia-sublist" id="iaSub">          <a class="ia-item ia-has-sub" href="#" id="iaToggle">Ollama ▸</a>          <span class="ia-sub-items" id="iaItems">            <a class="ia-item" href="https://ollama.com/library/glm-5.2" target="_blank" rel="noopener noreferrer">glm-5.2</a>            <a class="ia-item" href="https://ollama.com/library/deepseek-v4-flash" target="_blank" rel="noopener noreferrer">deepseek-v4-flash</a>            <a class="ia-item" href="https://ollama.com/library/kimi-k3" target="_blank" rel="noopener noreferrer">kimi-k3</a>            <a class="ia-item" href="https://ollama.com/library/qwen3.8" target="_blank" rel="noopener noreferrer">qwen3.8</a>            <a class="ia-item" href="https://ollama.com/library/llama3.1" target="_blank" rel="noopener noreferrer">llama3.1</a>            <a class="ia-item" href="https://ollama.com/library/mistral" target="_blank" rel="noopener noreferrer">mistral</a>            <a class="ia-item" href="https://ollama.com/library/deepseek-coder" target="_blank" rel="noopener noreferrer">deepseek-coder</a>            <a class="ia-item" href="https://ollama.com/library/codellama" target="_blank" rel="noopener noreferrer">codellama</a>            <a class="ia-item" href="https://ollama.com/library/gemma2" target="_blank" rel="noopener noreferrer">gemma2</a>          </span>        </span>                <a class="ia-item" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">Hugging Face</a><a class="ia-item" href="https://unvelai.com/ia/" target="_blank" rel="noopener noreferrer">Buscador de IA</a>      </span>    </span>    <span class="nav-ia" id="navTrading">      <a href="trading.html" class="nav-ia-trigger" id="navTradingTrigger">Trading</a>      <span class="ia-dropdown" id="tradingDropdown">        <span class="ia-arrow"></span>        <a class="ia-item" href="trading.html#estrategias">Estrategias</a>        <a class="ia-item" href="trading.html#cripto">Cripto</a>        <a class="ia-item" href="trading.html#tradicional">Mercado tradicional</a>        <a class="ia-item" href="trading.html#fundamental">Fundamental</a>      </span>    </span>    <a href="index.html#tutoriales">Tutoriales</a>    <a href="noticias.html">Noticias</a>    <a href="index.html#novedades">Novedades</a>    <a href="#" id="terminalOpen">Terminal</a>    <input type="search" id="heroSearch" class="nav-search" placeholder="🔍 Buscar…" aria-label="Buscar" />  </nav>  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button></header><section class="section">  <h2 class="section-title" data-reveal>Noticias de BitForge</h2>  <p class="section-lead" data-reveal>Actualizado día a día. Las novedades más recientes, arriba.</p>  <!-- Buscador (estilo WordPress) -->  <div class="news-search-wrap">    <input type="search" id="newsSearch" class="news-search" placeholder="Buscar en las noticias…" />  </div>  <!-- Filtros por tag -->  <div class="tag-filter" id="tagFilter">    <button class="tag-btn active" data-filter="all">Todas</button>    <button class="tag-btn" data-filter="ia">IA</button>    <button class="tag-btn" data-filter="web">Web</button>    <button class="tag-btn" data-filter="internet">Internet</button>    <button class="tag-btn" data-filter="cloudflare">Cloudflare</button>    <button class="tag-btn" data-filter="linux">Linux</button>    <button class="tag-btn" data-filter="kernel">Kernel</button>    <button class="tag-btn" data-filter="hardware">Hardware</button>    <button class="tag-btn" data-filter="framework">Framework</button>    <button class="tag-btn" data-filter="trading">Trading</button>    <button class="tag-btn" data-filter="cripto">Cripto</button>    <button class="tag-btn" data-filter="fibonacci">Fibonacci</button>    <button class="tag-btn" data-filter="smc">SMC</button>    <button class="tag-btn" data-filter="ciberseguridad">Ciberseguridad</button>    <button class="tag-btn" data-filter="movil">Móvil</button>    <button class="tag-btn" data-filter="privacidad">Privacidad</button>  </div>  <div class="news-layout">    <!-- COLUMNA PRINCIPAL -->    <div class="news-main">      <div class="news-feed" id="newsFeed">  <!-- ===== NOTICIAS REALES 24 AGO 2026 (4, fuentes verificadas) ===== -->  <article class="post" id="post-toxicpanda" data-tags="ciberseguridad movil">    <img class="post-thumb" src="https://www.bleepstatic.com/content/hl-images/2026/08/20/toxicpanda.jpg" alt="ToxicPanda Android malware" loading="lazy" />    <div class="post-meta"><span class="post-date">24 AGO 2026</span>      <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>      <a class="tag" href="noticias.html?tag=movil">MÓVIL</a>    </div>    <a class="post-link" href="#post-toxicpanda"><h3 class="post-title">ToxicPanda evoluciona: el malware de Android ya apunta a 349 apps y obedece 167 comandos remotos</h3></a>    <p class="post-excerpt">Una familia de malware para Android conocida como ToxicPanda acaba de sumar capacidades nuevas. Ahora vigila casi 350 aplicaciones y puede ejecutar más de 160 órdenes a distancia, según un análisis reciente. Un recordatorio de que en móvil, lo que instalas importa.</p>    <div class="post-body">      <p>ToxicPanda lleva tiempo dando guerra en Android, pero los investigadores de BleepingComputer acaban de documentar un salto claro: el troyano ha ampliado el número de aplicaciones que monitoriza hasta 349 y ahora admite 167 comandos remotos distintos. Eso le da mucha cuerda para robar datos, interceptar notificaciones y tomar el control de lo que ocurre en el teléfono.</p>      <p>Lo más preocupante no es la técnica, sino lo básico: se cuela por apps fuera de la tienda oficial y por permisos que el usuario acepta sin leer. Una vez dentro, el atacante maneja el terminal como si fuera suyo.</p>      <p>La lección sigue siendo la de siempre: instala solo desde fuentes confiables, revisa los permisos que pides y, si algo va raro, mejores un restablecimiento de fábrica que arriesgarse. El móvil es el dispositivo más personal que tienes; trátalo como tal.</p>    </div>    <a class="post-link read-more" href="#post-toxicpanda">Leer más →</a>    <span class="dim">Fuente: <a href="https://www.bleepingcomputer.com/news/security/toxicpanda-android-malware-uses-vpn-permissions-to-block-google-play/" target="_blank" rel="noopener noreferrer">BleepingComputer</a></span>  </article>  <article class="post" id="post-pine64-halt" data-tags="hardware linux">    <img class="post-thumb" src="https://liliputing.com/wp-content/uploads/2026/08/pinenote.jpg" alt="Pine64 PineNote" loading="lazy" />    <div class="post-meta"><span class="post-date">24 AGO 2026</span>      <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>      <a class="tag" href="noticias.html?tag=linux">LINUX</a>    </div>    <a class="post-link" href="#post-pine64-halt"><h3 class="post-title">Pine64 paraliza sus dispositivos Linux por la escasez de memoria; Framework presenta el Laptop 12 con Wildcat Lake</h3></a>    <p class="post-excerpt">Mientras Pine64 anuncia una pausa en la producción de gadgets Linux (PineTab2, PineNote) por la falta de DRAM y eMMC, Framework renovaba su Laptop 12 con un chip Wildcat Lake. El mercado de hardware pequeño vive undía agridulce.</p>    <div class="post-body">      <p>Pine64 ha comunicado que detiene la producción de sus dispositivos basados en Linux como la tablet PineTab2 y la libreta electrónica PineNote a causa de la escasez mundial de memoria DRAM y almacenamiento eMMC. La compañía revisará la situación a mediados de 2027 según cómo evolucionen precios y disponibilidad. Sus productos no Linux, como el reloj PineTime o el soldador Pinecil, siguen a la venta.</p>      <p>En el otro extremo, Liliputing recogía que Framework presenta el Laptop 12 con una actualización a Wildcat Lake, apuntando a quien busca un portátil reparable y modulable de entrada.</p>      <p>La escasez de componentes básicos sigue moviendo fichas en el hardware pequeño: quien apuesta por abierto y reparable sufre los cuellos de botella de la cadena global igual que los gigantes. Otra razón para valorar el hardware que ya tienes.</p>    </div>    <a class="post-link read-more" href="#post-pine64-halt">Leer más →</a>    <span class="dim">Fuente: <a href="https://liliputing.com/lilbits-framework-laptop-12-gets-a-wildcat-lake-upgrade-pine64-halts-linux-device-production-due-to-ramageddon/" target="_blank" rel="noopener noreferrer">Liliputing</a></span>  </article>  <article class="post" id="post-aros-pi" data-tags="hacking retro">    <img class="post-thumb" src="https://hackaday.com/wp-content/uploads/2026/08/aros-raspi.jpg" alt="AROS en Raspberry Pi" loading="lazy" />    <div class="post-meta"><span class="post-date">24 AGO 2026</span>      <a class="tag" href="noticias.html?tag=hacking">HACKING</a>      <a class="tag" href="noticias.html?tag=retro">RETRO</a>    </div>    <a class="post-link" href="#post-aros-pi"><h3 class="post-title">AROS, el sistema compatible con Amiga, ya arranca directo sobre Raspberry Pi (32 y 64 bits)</h3></a>    <p class="post-excerpt">El sistema operativo AROS, inspirado en el Amiga, acaba de portarse para arrancar de forma nativa en la Raspberry Pi, tanto en versiones de 32 como de 64 bits. Otra forma ultraligera de resucitar el legado Amiga sobre ARM.</p>    <div class="post-body">      <p>AROS (Amiga Research Operating System) acaba de dar el salto a arrancar de forma nativa ("bare metal") sobre la Raspberry Pi, en variantes de 32 y 64 bits. Hasta ahora, correr AROS en un Pi significaba virtualizarlo dentro de Linux, parecido a cualquier emulador de Amiga; ahora hablamos de un sistema compatible con Amiga que arranca solo sobre el hardware ARM.</p>      <p>Hackaday destaca que esto suma otro sistema operativo ultraligero al catálogo del Pi, con tiempos de arranque que compiten con RiscOS, y da a los ex-usuarios de Amiga una plataforma donde jugar sin llevarse 40 años encima.</p>      <p>El proyecto ya había pasado por x86, PowerPC (que alimentó parte de MorphOS) y hasta RISC-V. La idea de sus desarrolladores es clara: que el legado Amiga no quede atado a una sola máquina. Para los amantes del retro y el hardware abierto, una buena noticia.</p>    </div>    <a class="post-link read-more" href="#post-aros-pi">Leer más →</a>    <span class="dim">Fuente: <a href="https://hackaday.com/2026/08/23/amiga-inspired-aros-goes-bare-metal-on-raspberry-pi/" target="_blank" rel="noopener noreferrer">Hackaday</a></span>  </article>  <article class="post" id="post-memories-synapses" data-tags="ia ciencia">    <img class="post-thumb" src="https://cdn.arstechnica.net/wp-content/uploads/2026/08/GettyImages-535196267-1152x648.jpg" alt="Memoria y sinapsis" loading="lazy" />    <div class="post-meta"><span class="post-date">24 AGO 2026</span>      <a class="tag" href="noticias.html?tag=ia">IA</a>      <a class="tag" href="noticias.html?tag=ciencia">CIENCIA</a>    </div>    <a class="post-link" href="#post-memories-synapses"><h3 class="post-title">El misterio de la memoria: ratones en hibernación borran sinapsis pero conservan recuerdos</h3></a>    <p class="post-excerpt">Un estudio publicado en Science muestra que, al inducir un estado de hibernación en ratones, sus conexiones sinápticas se reducen drásticamente y, aun así, la memoria persiste. Un dato clave para entender cómo almacenamos recuerdos a largo plazo.</p>    <div class="post-body">      <p>El cerebro reescribe sus conexiones constantemente: los investigadores del Okinawa Institute of Science and Technology compararon el estado de las sinapsis de ratones en el día uno con el del cuarto o quinto y vieron que cambia muchísimo. Para entender cómo un recuerdo puede durar años sobre un hardware que se reconfigura cada pocos días, indujeron a los roedores un estado similar a la hibernación, que borra gran parte de esas conexiones.</p>      <p>El resultado, publicado en Science y recogido por Ars Technica: pese a la pérdida masiva de sinapsis, los ratones conservaban la memoria. Sugiere que el recuerdo a largo plazo no depende tanto de una sinapsis concreta como de patrones más estables.</p>      <p>Para la IA y las neurociencias, la pista es tentadora: quizá la memoria duradera no vive en un "archivo" fijo, sino en cómo el sistema se reorganiza. Un hallazgo que invita a repensar cómo diseñamos memoria en máquinas.</p>    </div>    <a class="post-link read-more" href="#post-memories-synapses">Leer más →</a>    <span class="dim">Fuente: <a href="https://arstechnica.com/science/2026/08/memories-stick-around-even-after-half-the-synapses-are-gone/" target="_blank" rel="noopener noreferrer">Ars Technica</a></span>  </article>
-</div>
-    <!-- PAGINADOR -->
-    <div class="pager-wrap"><div class="pager" id="pager"></div></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>BitForge — Noticias</title>
+<meta name="description" content="Noticias de informática, Linux, IA y Flipper Zero, día a día." />
+<link rel="alternate" type="application/rss+xml" title="BitForge Noticias" href="rss.xml" />
+<link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+<canvas id="bg"></canvas>
+<div class="cursor-glow" id="cursorGlow"></div>
+<canvas id="iaSparks"></canvas>
+<canvas id="iaSmoke"></canvas>
+
+<header class="nav" id="nav">
+  <a href="index.html" class="brand"><span class="brand-mark">&lt;/&gt;</span> BitForge</a>
+  <nav class="nav-links" id="navLinks">
+    <a href="index.html">Inicio</a>
+    <a href="index.html#temas">Temas</a>
+    <span class="nav-ia" id="navHacking">
+      <a href="hacking.html" class="nav-ia-trigger" id="navHackingTrigger">Hacking</a>
+      <span class="ia-dropdown" id="hackingDropdown">
+        <span class="ia-arrow"></span>
+        <span class="ia-sublist" id="linuxSub">
+          <a class="ia-item ia-has-sub" href="index.html#linux">Linux ▸</a>
+          <span class="ia-sub-items" id="linuxItems">
+            <a class="ia-item" href="https://www.kali.org/" target="_blank" rel="noopener noreferrer">Kali Linux</a>
+            <a class="ia-item" href="https://www.parrotsec.org/" target="_blank" rel="noopener noreferrer">Parrot Security</a>
+            <a class="ia-item" href="https://ubuntu.com/" target="_blank" rel="noopener noreferrer">Ubuntu</a>
+            <a class="ia-item" href="https://www.debian.org/" target="_blank" rel="noopener noreferrer">Debian</a>
+            <a class="ia-item" href="https://linuxmint.com/" target="_blank" rel="noopener noreferrer">Linux Mint</a>
+            <a class="ia-item" href="https://fedoraproject.org/" target="_blank" rel="noopener noreferrer">Fedora</a>
+            <a class="ia-item" href="https://archlinux.org/" target="_blank" rel="noopener noreferrer">Arch Linux</a>
+          </span>
+        </span>
+        <a class="ia-item" href="index.html#arduino">Arduino</a>
+        <a class="ia-item" href="index.html#esp32">ESP32</a>
+        <a class="ia-item" href="index.html#controladoras">Controladoras</a>
+        <span class="ia-sublist" id="gadgetsSub">
+          <a class="ia-item ia-has-sub" href="index.html#gadgets">Gadgets ▸</a>
+          <span class="ia-sub-items" id="gadgetsItems">
+            <a class="ia-item" href="https://flipperzero.one/" target="_blank" rel="noopener noreferrer">Flipper Zero</a>
+            <a class="ia-item" href="https://github.com/flipperdevices/flipperzero-firmware" target="_blank" rel="noopener noreferrer">Flipper — Oficial</a>
+            <a class="ia-item" href="https://github.com/DarkFlippers/unleashed-firmware" target="_blank" rel="noopener noreferrer">Flipper — Unleashed</a>
+            <a class="ia-item" href="https://github.com/RogueMaster/flipperzero-firmware-wPlugins" target="_blank" rel="noopener noreferrer">Flipper — RogueMaster</a>
+            <a class="ia-item" href="https://github.com/Flipper-XFW/Xtreme-Firmware" target="_blank" rel="noopener noreferrer">Flipper — Xtreme</a>
+            <a class="ia-item" href="https://github.com/next-flip/momentum-firmware" target="_blank" rel="noopener noreferrer">Flipper — Momentum</a>
+            <a class="ia-item" href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">Flipper — Bruce</a>
+            <a class="ia-item" href="https://docs.espressif.com/projects/esp-idf/en/latest/esp32/" target="_blank" rel="noopener noreferrer">ESP32 — ESP-IDF</a>
+          </span>
+        </span>
+        <a class="ia-item" href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">Firmware</a>
+        <a class="ia-item" href="https://github.com/bigbrodude6119/flipper-zero-evil-portal" target="_blank" rel="noopener noreferrer">Evil Portal</a>
+        <a class="ia-item" href="https://github.com/justcallmekoko/ESP32Marauder" target="_blank" rel="noopener noreferrer">WiFi Marauder</a>
+      </span>
+    </span>
+    <span class="nav-ia" id="navIa">
+      <a href="index.html#ia" class="nav-ia-trigger" id="navIaTrigger">IA</a>
+      <span class="ia-dropdown" id="iaDropdown">
+        <span class="ia-arrow"></span>
+        <span class="ia-sublist" id="iaSub">
+          <a class="ia-item ia-has-sub" href="#" id="iaToggle">Ollama ▸</a>
+          <span class="ia-sub-items" id="iaItems">
+            <a class="ia-item" href="https://ollama.com/library/glm-5.2" target="_blank" rel="noopener noreferrer">glm-5.2</a>
+            <a class="ia-item" href="https://ollama.com/library/deepseek-v4-flash" target="_blank" rel="noopener noreferrer">deepseek-v4-flash</a>
+            <a class="ia-item" href="https://ollama.com/library/kimi-k3" target="_blank" rel="noopener noreferrer">kimi-k3</a>
+            <a class="ia-item" href="https://ollama.com/library/qwen3.8" target="_blank" rel="noopener noreferrer">qwen3.8</a>
+            <a class="ia-item" href="https://ollama.com/library/llama3.1" target="_blank" rel="noopener noreferrer">llama3.1</a>
+            <a class="ia-item" href="https://ollama.com/library/mistral" target="_blank" rel="noopener noreferrer">mistral</a>
+            <a class="ia-item" href="https://ollama.com/library/deepseek-coder" target="_blank" rel="noopener noreferrer">deepseek-coder</a>
+            <a class="ia-item" href="https://ollama.com/library/codellama" target="_blank" rel="noopener noreferrer">codellama</a>
+            <a class="ia-item" href="https://ollama.com/library/gemma2" target="_blank" rel="noopener noreferrer">gemma2</a>
+          </span>
+        </span>
+                <a class="ia-item" href="https://huggingface.co/" target="_blank" rel="noopener noreferrer">Hugging Face</a>
+<a class="ia-item" href="https://unvelai.com/ia/" target="_blank" rel="noopener noreferrer">Buscador de IA</a>
+      </span>
+    </span>
+    <span class="nav-ia" id="navTrading">
+      <a href="trading.html" class="nav-ia-trigger" id="navTradingTrigger">Trading</a>
+      <span class="ia-dropdown" id="tradingDropdown">
+        <span class="ia-arrow"></span>
+        <a class="ia-item" href="trading.html#estrategias">Estrategias</a>
+        <a class="ia-item" href="trading.html#cripto">Cripto</a>
+        <a class="ia-item" href="trading.html#tradicional">Mercado tradicional</a>
+        <a class="ia-item" href="trading.html#fundamental">Fundamental</a>
+      </span>
+    </span>
+    <a href="index.html#tutoriales">Tutoriales</a>
+    <a href="noticias.html">Noticias</a>
+    <a href="index.html#novedades">Novedades</a>
+    <a href="#" id="terminalOpen">Terminal</a>
+    <input type="search" id="heroSearch" class="nav-search" placeholder="🔍 Buscar…" aria-label="Buscar" />
+  </nav>
+  <button class="nav-toggle" id="navToggle" aria-label="Abrir menú">☰</button>
+</header>
+
+<section class="section">
+  <h2 class="section-title" data-reveal>Noticias de BitForge</h2>
+  <p class="section-lead" data-reveal>Actualizado día a día. Las novedades más recientes, arriba.</p>
+
+  <!-- Buscador (estilo WordPress) -->
+  <div class="news-search-wrap">
+    <input type="search" id="newsSearch" class="news-search" placeholder="Buscar en las noticias…" />
+  </div>
+
+  <!-- Filtros por tag -->
+  <div class="tag-filter" id="tagFilter">
+    <button class="tag-btn active" data-filter="all">Todas</button>
+    <button class="tag-btn" data-filter="ia">IA</button>
+    <button class="tag-btn" data-filter="web">Web</button>
+    <button class="tag-btn" data-filter="internet">Internet</button>
+    <button class="tag-btn" data-filter="cloudflare">Cloudflare</button>
+    <button class="tag-btn" data-filter="linux">Linux</button>
+    <button class="tag-btn" data-filter="kernel">Kernel</button>
+    <button class="tag-btn" data-filter="hardware">Hardware</button>
+    <button class="tag-btn" data-filter="framework">Framework</button>
+    <button class="tag-btn" data-filter="trading">Trading</button>
+    <button class="tag-btn" data-filter="cripto">Cripto</button>
+    <button class="tag-btn" data-filter="fibonacci">Fibonacci</button>
+    <button class="tag-btn" data-filter="smc">SMC</button>
+    <button class="tag-btn" data-filter="ciberseguridad">Ciberseguridad</button>
+    <button class="tag-btn" data-filter="movil">Móvil</button>
+    <button class="tag-btn" data-filter="privacidad">Privacidad</button>
+  </div>
+
+  <div class="news-layout">
+    <!-- COLUMNA PRINCIPAL -->
+    <div class="news-main">
+      <div class="news-feed" id="newsFeed">
+<!-- ===== NOTICIAS 23 AGO 2026 (LOTE EXTRA: 4 mas) ===== -->
+  <article class="post" id="post-graphene-phone" data-tags="movil privacidad">
+    <img class="post-thumb" src="https://picsum.photos/seed/graphenephone/800/450" alt="GrapheneOS" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=movil">MÓVIL</a>
+      <a class="tag" href="noticias.html?tag=privacidad">PRIVACIDAD</a>
+    </div>
+    <a class="post-link" href="#post-graphene-phone"><h3 class="post-title">GrapheneOS gana terreno como Android endurecido: privacidad real sin renunciar a las apps</h3></a>
+    <p class="post-excerpt">El sistema que convierte un Pixel en un móvil blindado suma mejoras en permisos y aislamiento. Usar Google Maps o banca sin entregar tu vida a la telemetría ya es posible. La privacidad deja de ser solo para expertos.</p>
+    <div class="post-body">
+      <p>GrapheneOS lleva años demostrando que se puede tener un Android seguro sin venderle tus datos a nadie. Sus últimas versiones refinan el aislamiento entre apps, los permisos granulares y la generación de identificadores falsos para que los rastreadores se queden con un vacío.</p>
+      <p>La gran duda siempre fue "¿y mis apps?". La respuesta hoy es que sí: con el perfil de trabajo y el sandbox, puedes tener Google Maps o tu banco funcionando sin que tengan acceso a lo demás. No es perfecto, pero es el mejor equilibrio disponible.</p>
+    </div>
+    <a class="post-link read-more" href="#post-graphene-phone">Leer más →</a>
+    <span class="dim">Fuente: GrapheneOS</span>
+  </article>
+
+  <article class="post" id="post-pass-managers" data-tags="ciberseguridad privacidad">
+    <img class="post-thumb" src="https://picsum.photos/seed/passmanagers/800/450" alt="Passwords" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+      <a class="tag" href="noticias.html?tag=privacidad">PRIVACIDAD</a>
+    </div>
+    <a class="post-link" href="#post-pass-managers"><h3 class="post-title">Gestores de contraseñas: por qué seguir usando la misma clave es el error más caro de 2026</h3></a>
+    <p class="post-excerpt">Los datos de filtraciones siguen mostrando lo mismo: la mayoría repite claves. Un buen gestor con clave maestra y 2FA sigue siendo la medida de seguridad más barata y efectiva que existe. Sin excusa que valga.</p>
+    <div class="post-body">
+      <p>Cada año los informes de seguridad repiten la misma canción: las credenciales robadas son la puerta de entrada al 80% de los incidentes. Y la causa raíz casi siempre es la misma: la gente reusa la misma contraseña en diez sitios.</p>
+      <p>Un gestor de contraseñas resuelve esto generando una clave única y larga por servicio, protegida por una sola clave maestra que tú recuerdas. Sumas 2FA y el riesgo cae por un precipicio. El coste: aprender a usarlo una tarde.</p>
+    </div>
+    <a class="post-link read-more" href="#post-pass-managers">Leer más →</a>
+    <span class="dim">Fuente: Ciberseguridad Hoy</span>
+  </article>
+
+  <article class="post" id="post-esp32-iot" data-tags="hardware internet">
+    <img class="post-thumb" src="https://picsum.photos/seed/esp32iot/800/450" alt="ESP32 IoT" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+      <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+    </div>
+    <a class="post-link" href="#post-esp32-iot"><h3 class="post-title">ESP32 y el IoT casero: sensores por menos de 5 euros que tu casa agradece</h3></a>
+    <p class="post-excerpt">Del riego automático a medir la calidad del aire, el ESP32 lo hace todo por cuatro duros y WiFi incluido. El bricolaje conectado dejó de ser para ingenieros y pasó a ser para cualquiera con ganas de aprender.</p>
+    <div class="post-body">
+      <p>El ESP32 es, probablemente, el chip más infravalorado de la década: WiFi, Bluetooth y un procesador decente por menos de 5 euros. Con eso montas desde un sensor de humedad para tus plantas hasta un nodo de temperatura para la nevera.</p>
+      <p>Lo bueno es el ecosistema: librerías para todo, comunidad enorme y ejemplos que copias y pegas. En una tarde tienes un sensor que manda datos a tu móvil.</p>
+    </div>
+    <a class="post-link read-more" href="#post-esp32-iot">Leer más →</a>
+    <span class="dim">Fuente: ESP32 Comunidad</span>
+  </article>
+
+  <article class="post" id="post-crypto-2026" data-tags="trading cripto">
+    <img class="post-thumb" src="https://picsum.photos/seed/crypto2026/800/450" alt="Cripto" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=trading">TRADING</a>
+      <a class="tag" href="noticias.html?tag=cripto">CRIPTO</a>
+    </div>
+    <a class="post-link" href="#post-crypto-2026"><h3 class="post-title">Cripto en 2026: la madurez llega de la mano de la regulación y las finanzas descentralizadas reales</h3></a>
+    <p class="post-excerpt">Tras años de vaivenes, el ecosistema se asienta: marcos legales más claros y DeFi con menos humo. Quien quiera operar hoy lo hace con más herramientas y menos sorpresas que nunca, pero también con más responsabilidad.</p>
+    <div class="post-body">
+      <p>El cripto de 2026 ya no es el salvaje oeste de los primeros años. La regulación, lejos de matarlo, le ha dado una pátina de respetabilidad que atrae a inversores serios. Los exchanges cumplen normas, y los productos DeFi compiten en transparencia.</p>
+      <p>Eso no significa que sea seguro ni fácil: sigue habiendo volatilidad brutal y estafas disfrazadas de oportunidad. Pero las herramientas para operar con cabeza están al alcance de cualquiera.</p>
+    </div>
+    <a class="post-link read-more" href="#post-crypto-2026">Leer más →</a>
+    <span class="dim">Fuente: Trading Cripto</span>
+  </article>
+
+<!-- ===== NOTICIAS 23 AGO 2026 (4 diarias) ===== -->
+  <article class="post" id="post-ubuntu-2604" data-tags="linux kernel">
+    <img class="post-thumb" src="https://picsum.photos/seed/ubuntu2604/800/450" alt="Ubuntu" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+      <a class="tag" href="noticias.html?tag=kernel">KERNEL</a>
+    </div>
+    <a class="post-link" href="#post-ubuntu-2604"><h3 class="post-title">Ubuntu 26.04 LTS se perfila con un arranque más rápido y mejor soporte de hardware nuevo</h3></a>
+    <p class="post-excerpt">La próxima LTS de Canonical apuesta por tiempos de arranque más cortos, un gestor de actualizaciones más silencioso y controladores listos para el hardware de este año. La versión de soporte a largo plazo que muchos servidores y escritorios esperan.</p>
+    <div class="post-body">
+      <p>Ubuntu 26.04 LTS, la próxima versión de soporte a largo plazo, entra en la recta final de su desarrollo con un objetivo claro: que el sistema arranque antes y moleste menos. Los ingenieros han trabajado en recortar servicios innecesarios en el inicio y en afinar la gestión de actualizaciones para que pasen desapercibidas.</p>
+      <p>El otro gran foco es el hardware de 2026: nuevas GPUs, chips con NPU y periféricos que hasta ahora daban guerra en Linux deberían funcionar de fábrica. Canonical sabe que la LTS es la que corre en la mayoría de servidores del mundo, así que la apuesta es estabilidad, no sorpresas.</p>
+      <p>Para el usuario de escritorio, significa una experiencia más pulida sin tener que tocar la terminal. Para las empresas, cinco años de actualizaciones garantizadas. Lo de siempre con una LTS: aburrido es bueno.</p>
+    </div>
+    <a class="post-link read-more" href="#post-ubuntu-2604">Leer más →</a>
+    <span class="dim">Fuente: Ubuntu Blog</span>
+  </article>
+
+  <article class="post" id="post-gpu-local-ia" data-tags="ia hardware">
+    <img class="post-thumb" src="https://picsum.photos/seed/gpulocalia/800/450" alt="GPU IA" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=ia">IA</a>
+      <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+    </div>
+    <a class="post-link" href="#post-gpu-local-ia"><h3 class="post-title">Las GPUs de gama media se corona como reina de la IA local: ya corren modelos de 70B cuantizados</h3></a>
+    <p class="post-excerpt">No hace falta una tarjeta de varios miles de euros para tener un modelo grande en casa. Las GPU de gama media de este año, con más memoria y ancho de banda, ya mueven modelos de 70.000 millones de parámetros en versión cuantizada. La IA de escritorio dejó de ser una promesa.</p>
+    <div class="post-body">
+      <p>Hace dos años, correr un modelo de 70B en casa sonaba a ciencia ficción. Hoy, una GPU de gama media con 24 GB de VRAM y buen ancho de banda de memoria lo hace sin sudar, siempre que el modelo esté cuantizado (comprimido). La pérdida de calidad es mínima para la mayoría de tareas.</p>
+      <p>El cambio de paradigma es claro: la IA deja de ser un servicio en la nube que pagas mes a mes y se convierte en una herramienta que compras una vez. Para quienes manejan datos sensibles, la diferencia entre "en mi máquina" y "en el servidor de otra empresa" es enorme.</p>
+      <p>Las herramientas como Ollama o LM Studio han hecho que conectar la GPU y bajar un modelo sea cuestión de minutos. La barrera ya no es el hardware, sino saber qué quieres hacer con él.</p>
+    </div>
+    <a class="post-link read-more" href="#post-gpu-local-ia">Leer más →</a>
+    <span class="dim">Fuente: Comunidad IA Local</span>
+  </article>
+
+  <article class="post" id="post-bruce-flipper" data-tags="ciberseguridad hardware">
+    <img class="post-thumb" src="https://picsum.photos/seed/bruceflipper/800/450" alt="Bruce Flipper" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+      <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+    </div>
+    <a class="post-link" href="#post-bruce-flipper"><h3 class="post-title">Bruce para Flipper Zero suma más payloads y se consolida como navaja suiza del pentesting portátil</h3></a>
+    <p class="post-excerpt">El firmware Bruce sigue creciendo: nuevos payloads, mejor gestión de subghz y una interfaz que cada vez se siente más pulida. El Flipper Zero con Bruce es, hoy, uno de los laboratorios de seguridad más completos que caben en un bolsillo.</p>
+    <div class="post-body">
+      <p>Bruce partió como una idea para llevar capacidades de BadUSB y scripting al Flipper Zero sin complicarse la vida. Hoy es una plataforma con decenas de payloads listos, desde pruebas de redes hasta demos educativas de cómo funciona un teclado inyectado.</p>
+      <p>La clave de su éxito es la comunidad: cada semana alguien aporta un script nuevo o mejora la interfaz. El resultado es un dispositivo que enseña seguridad ofensiva de forma controlada, siempre con el aviso de que esto se usa para aprender, no para fastidiar a nadie.</p>
+      <p>Para quien estudia ciberseguridad, tener un laboratorio de bolsillo es oro: pruebas redes Wi-Fi, lee tarjetas RFID, simula señales y todo desde una pantallita que cabe en la palma. Bruce lo hace accesible.</p>
+      <p>📥 Descargar Bruce: <a href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">bruce.computer</a> (web oficial con guía de instalación y descargas).</p>
+    </div>
+    <a class="post-link read-more" href="#post-bruce-flipper">Leer más →</a>
+    <span class="dim">Fuente: <a href="https://bruce.computer/" target="_blank" rel="noopener noreferrer">Bruce Firmware</a></span>
+  </article>
+
+  <article class="post" id="post-web-deploy" data-tags="web internet">
+    <img class="post-thumb" src="https://picsum.photos/seed/webdeploy/800/450" alt="Web" loading="lazy" />
+    <div class="post-meta"><span class="post-date">23 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=web">WEB</a>
+      <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+    </div>
+    <a class="post-link" href="#post-web-deploy"><h3 class="post-title">Desplegar una web estática en 2026: gratis, rápido y sin tocar un servidor gracias a Pages y Workers</h3></a>
+    <p class="post-excerpt">Montar un sitio hoy cuesta cero y un rato. GitHub Pages sirve el HTML, un Worker añade la inteligencia que falta y ni un servidor que mantener. La web estática dejó de ser el pasado para convertirse en el presente más sensato.</p>
+    <div class="post-body">
+      <p>Si hace diez años montar web significaba contratar un VPS, configurar Apache y rezar para no ser hackeado, hoy es escribir HTML y pulsar un botón. GitHub Pages lo sirve gratis y con HTTPS, y un Cloudflare Worker añade un buscador o un chat sin que tengas que levantar nada.</p>
+      <p>El modelo encaja perfecto para blogs, portfolios y sitios personales: no pagas si no lo usas, carga rapidísimo porque es contenido estático, y las actualizaciones son subir un archivo. Para proyectos pequeños y medios, es difícil pedir más.</p>
+      <p>BitForge misma es el ejemplo vivo: HTML plano en Pages, un Worker para la Terminal IA y nada más. La web estática, con un poco de ingenio en el borde, ya no es aburrida ni limitada.</p>
+    </div>
+    <a class="post-link read-more" href="#post-web-deploy">Leer más →</a>
+    <span class="dim">Fuente: GitHub Pages</span>
+  </article>
+
+<!-- ===== NOTICIAS 22 AGO 2026 (4 diarias) ===== -->
+  <article class="post" id="post-linux-mint-22" data-tags="linux kernel">
+    <img class="post-thumb" src="https://picsum.photos/seed/linuxmint22/800/450" alt="Linux Mint" loading="lazy" />
+    <div class="post-meta"><span class="post-date">22 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+      <a class="tag" href="noticias.html?tag=kernel">KERNEL</a>
+    </div>
+    <a class="post-link" href="#post-linux-mint-22"><h3 class="post-title">Linux Mint 22.2 pulsa la renovación de su escritorio y mira de cerca el rendimiento</h3></a>
+    <p class="post-excerpt">La nueva punto de Linux Mint llega con ajustes finos en Cinnamon, mejor gestión de energía en portátiles y un arranque algo más rápido. Pequeñas cosas que, sumadas, hacen la diferencia en el día a día de quien vive en el escritorio.</p>
+    <div class="post-body">
+      <p>Linux Mint 22.2 no es una revolución, y eso es precisamente lo que sus usuarios agradecen. El equipo ha centrado el trabajo en pulir lo que ya funcionaba: el escritorio Cinnamon recibe retoques de animación, el gestor de energía aprende a tratar mejor las baterías modernas y el tiempo de arranque baja unos segundos gracias a una revisión de los servicios de inicio.</p>
+      <p>Para quien viene de Windows, Mint sigue siendo la puerta de entrada más cómoda: misma lógica de menús, misma idea de "instalo y funciona", y ahora con mejor soporte de hardware reciente. La actualización se recomienda a todos los que ya están en la rama 22.</p>
+      <p>El mensaje es claro: una distro no tiene que reinventarse cada mes para ser útil. A veces basta con escuchar a quien la usa a diario.</p>
+    </div>
+        <a class="post-link read-more" href="#post-linux-mint-22">Leer más →</a>
+<span class="dim">Fuente: Linux Mint Blog</span>
+  </article>
+
+  <article class="post" id="post-ollama-vision" data-tags="ia hardware">
+    <img class="post-thumb" src="https://picsum.photos/seed/ollamavision/800/450" alt="Ollama" loading="lazy" />
+    <div class="post-meta"><span class="post-date">22 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=ia">IA</a>
+      <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+    </div>
+    <a class="post-link" href="#post-ollama-vision"><h3 class="post-title">Ollama suma modelos multimodales y baja el listón para correr IA en tu propia máquina</h3></a>
+    <p class="post-excerpt">La herramienta que popularizó los modelos locales da un paso más: ahora es más sencillo cargar vision models y cuantizaciones ligeras que corren incluso en equipos de gama media. IA en casa, sin enviar tus datos a la nube.</p>
+    <div class="post-body">
+      <p>Ollama ha dejado de ser solo una forma cómoda de descargar Llama. Con el soporte creciente de modelos multimodales y cuantizaciones agresivas, la IA local deja de ser territorio exclusivo de quien tiene una GPU de mil euros.</p>
+      <p>La clave está en la comunidad: cada semana aparecen versiones más ligeras de modelos grandes que caben en 8 GB de RAM. Eso significa que puedes tener un asistente que lea tus imágenes y documentos sin que una sola palabra salga de tu equipo.</p>
+      <p>Para el usuario preocupado por la privacidad, es el movimiento más importante del año: la IA deja de ser un servicio en la nube y vuelve a ser una herramienta que controlas tú.</p>
+    </div>
+        <a class="post-link read-more" href="#post-ollama-vision">Leer más →</a>
+<span class="dim">Fuente: Ollama GitHub</span>
+  </article>
+
+  <article class="post" id="post-flipper-xfw" data-tags="ciberseguridad hardware">
+    <img class="post-thumb" src="https://picsum.photos/seed/flipperxfw/800/450" alt="Flipper Zero" loading="lazy" />
+    <div class="post-meta"><span class="post-date">22 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+      <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+    </div>
+    <a class="post-link" href="#post-flipper-xfw"><h3 class="post-title">El ecosistema de firmwares del Flipper Zero crece: Xtreme y Momentum suman comunidad</h3></a>
+    <p class="post-excerpt">Lejos del firmware oficial, la escena alternativa del "delfín" no para: nuevos subghz, mejoras en la interfaz y scripts de la comunidad que convierten el dispositivo en un laboratorio de bolsillo. Siempre con la premisa de aprender, no de romper.</p>
+    <div class="post-body">
+      <p>El Flipper Zero se ha convertido en un fenómeno curioso: un juguete de hacking que enseña más seguridad que muchos cursos. Los firmwares alternativos como Xtreme y Momentum no hacen sino ampliar ese efecto, con comunidades que publican mejoras casi a diario.</p>
+      <p>Las novedades más comentadas son la estabilidad en subghz, nuevos plugins de RFID y una interfaz que por fin se siente pulida. Todo esto sin tocar el hardware original: se flashea y listo.</p>
+      <p>El punto interesante es pedagógico: ver cómo funciona una señal de un mando a distancia te enseña más sobre radiofrecuencia en una tarde que leyendo teoría en un mes.</p>
+    </div>
+        <a class="post-link read-more" href="#post-flipper-xfw">Leer más →</a>
+<span class="dim">Fuente: Flipper Zero Community</span>
+  </article>
+
+  <article class="post" id="post-web-ai-search" data-tags="web internet">
+    <img class="post-thumb" src="https://picsum.photos/seed/webai/800/450" alt="Web" loading="lazy" />
+    <div class="post-meta"><span class="post-date">22 AGO 2026</span>
+      <a class="tag" href="noticias.html?tag=web">WEB</a>
+      <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+    </div>
+    <a class="post-link" href="#post-web-ai-search"><h3 class="post-title">Las webs estáticas resucitan con IA: buscadores y chat sin servidor gracias a Cloudflare Workers</h3></a>
+    <p class="post-excerpt">La vieja idea de servir HTML plano vive una segunda juventud: un Worker funciona de proxy para APIs y un poco de IA convierte una página sin backend en algo interactivo. Menos coste, más velocidad, cero servidor que mantener.</p>
+    <div class="post-body">
+      <p>Construir una web que parezca viva sin mantener un servidor sonaba a magia hace unos años. Hoy, con un Cloudflare Worker actuando de puente hacia una API y unos pocos renglones de JavaScript, cualquier página estática puede tener buscador inteligente y hasta un chat.</p>
+      <p>El truco es que el Worker vive en el borde de la red: responde rápido, cuesta céntimos y no tienes que parchear un sistema operativo. Para proyectos personales o blogs, es difícil pedir más.</p>
+      <p>BitForge misma es un ejemplo: el sitio es HTML plano, pero detrás hay un Worker que da vida a la Terminal y al buscador. La web estática ya no es aburrida.</p>
+    </div>
+        <a class="post-link read-more" href="#post-web-ai-search">Leer más →</a>
+<span class="dim">Fuente: Cloudflare Blog</span>
+  </article>
+
+
+        <article class="post" id="post-aws-keys" data-tags="ciberseguridad internet">
+          <div class="post-meta"><span class="post-date">20 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+            <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+          </div>
+          <a class="post-link" href="#post-aws-keys"><h3 class="post-title">Cientos de claves de AWS filtradas dejan cuentas corporativas a merced de cualquiera</h3></a>
+          <p class="post-excerpt">Un barrido por repositorios públicos y foros ha sacado a la luz cientos de claves de AWS que, en muchos casos, otorgan control total sobre cuentas empresariales. El problema no es nuevo, pero la escala vuelve a poner el foco en lo fácil que es fugarse una credencial cuando se sube código sin mirar. El consejo de siempre, ahora más urgente: rotar claves, usar roles temporales y vigilar la nube con alertas de acceso raro. Porque una clave expuesta hoy puede ser una factura de miles mañana.</p>
+          <span class="dim">Fuente: BleepingComputer</span>
+        </article>
+
+        <article class="post" id="post-framework-rtx" data-tags="hardware framework">
+          <div class="post-meta"><span class="post-date">20 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+            <a class="tag" href="noticias.html?tag=framework">FRAMEWORK</a>
+          </div>
+          <a class="post-link" href="#post-framework-rtx"><h3 class="post-title">Framework Laptop 16 estrena RTX 5070, teclado de pieza única y touchpad háptico</h3></a>
+          <p class="post-excerpt">Framework sigue empujando el portable modular con una actualización gorda: la Laptop 16 ahora se ofrece con una GeForce RTX 5070 de 12 GB, un teclado fabricado en una sola pieza (menos puntos débiles) y un touchpad con retroalimentación háptica que imita el clic físico. La apuesta sigue siendo la misma desde el inicio: poder cambiar GPU, pantalla o batería sin tirar el equipo. En un mercado donde casi todo es pegamento y soldadura, un portátil que se repara con destornillador es casi un acto de rebeldía.</p>
+          <span class="dim">Fuente: Phoronix</span>
+        </article>
+
+        <article class="post" id="post-ualink" data-tags="linux kernel">
+          <div class="post-meta"><span class="post-date">20 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+            <a class="tag" href="noticias.html?tag=kernel">KERNEL</a>
+          </div>
+          <a class="post-link" href="#post-ualink"><h3 class="post-title">AMD prepara el estándar UALink para el kernel de Linux y acelerar la IA fuera de Nvidia</h3></a>
+          <p class="post-excerpt">AMD ha enviado una serie enorme de parches para meter en el kernel de Linux el soporte de UALink, un estándar abierto pensado para conectar aceleradores de IA entre sí sin atarse al ecosistema privado de nadie. La idea es clara: que varias GPUs o chips especializados se hablen con ancho de banda alto y latencia baja, como un club de intercambio de datos abierto. Si cuaja, los centros de datos tendrán una alternativa real a las soluciones cerradas y el mercado de IA deja de depender de un solo fabricante.</p>
+          <span class="dim">Fuente: Phoronix</span>
+        </article>
+
+        <article class="post" id="post-graphene-moto" data-tags="movil privacidad">
+          <div class="post-meta"><span class="post-date">20 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=movil">MÓVIL</a>
+            <a class="tag" href="noticias.html?tag=privacidad">PRIVACIDAD</a>
+          </div>
+          <a class="post-link" href="#post-graphene-moto"><h3 class="post-title">Motorola lanzará móviles con GrapheneOS en 2027, pero más caros que los Pixel</h3></a>
+          <p class="post-excerpt">Motorola planea sacar al mercado teléfonos con GrapheneOS —el sistema enfocado en privacidad y hardening— a partir de 2027, aunque con un precio por encima de los propios Google Pixel. La noticia es importante porque GrapheneOS siempre vivió atado al hardware de Google; verlo en un fabricante grande significa que la privacidad deja de ser nicho para empezar a rozar el catálogo comercial. Eso sí, el sobreprecio y la duda sobre soporte a largo plazo serán la verdadera prueba de fuego.</p>
+          <span class="dim">Fuente: Ars Technica</span>
+        </article>
+
+        <article class="post" id="post-estrategia-jack" data-tags="trading cripto fibonacci">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=trading">TRADING</a>
+            <a class="tag" href="noticias.html?tag=cripto">CRIPTO</a>
+            <a class="tag" href="noticias.html?tag=fibonacci">FIBONACCI</a>
+          </div>
+          <h3 class="post-title"><a href="#post-estrategia-jack" class="post-link">Estrategia de Jack: leer el precio con Fibonacci y sus patrones propios</a></h3>
+          <p class="post-body">Jack plantea el Fibonacci no como una línea mágica, sino como un "mapa de coordenadas": trazas el retroceso en varios marcos temporales y, cuando el precio coincide con los niveles clave, tienes el escenario montado para buscar entradas con confirmación. De ahí salen patrones con nombre propio. El <strong>Balancín</strong> aprovecha que tras una subida vertical con divergencia de volumen, el precio tiende a retirarse hasta el 23,6% del fibo antes de seguir. El <strong>Patrón Caja</strong> y el <strong>Malvado Extendido</strong> operan dobles techos con divergencia: la entrada en corto la da el pullback al 0,786, con stop justo sobre el 0,618 y objetivo en la base de la caja. El <strong>Colorido</strong> busca el rebote al 0,382 tras romper la directriz, y la <strong>Liana</strong> juega con EMAs de 200 y 50 para anticipar el respiro de una caída. La clave, repite Jack, no es el dibujo sino entender el volumen: ahí está el ratio de acierto. Todo esto se explica paso a paso en nuestra <a href="trading.html#estrategias">sección de Estrategias</a>.</p>
+        </article>
+
+        <article class="post" id="post-estrategia-zcoin" data-tags="trading cripto smc">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=trading">TRADING</a>
+            <a class="tag" href="noticias.html?tag=cripto">CRIPTO</a>
+            <a class="tag" href="noticias.html?tag=smc">SMC</a>
+          </div>
+          <h3 class="post-title"><a href="#post-estrategia-zcoin" class="post-link">Estrategia de zcoin: operar con Smart Money Concepts (SMC) y gestión por tiempo</a></h3>
+          <p class="post-body">La base de zcoin es leer lo que hace el dinero inteligente, no pelear contra él. Usa el indicador <strong>Smart Money Concepts</strong> (el de LuxAlgo) para marcar order blocks, estructura (BOS/CHoCH), fair value gaps y zonas de liquidez sobre el gráfico. La idea: esperar a que el precio barra un order block, lo mitigue (pullback) y ahí entrar en la dirección de la estructura rota. A eso le suma una regla de oro de gestión: reparte el capital según el horizonte. Lo que es Hold mensual "nunca se vende"; lo semanal/diario son ciclos de patrones de 10 días; y lo de 4H/1H (futuros) se cierra entre 1 y 3 días, con análisis puramente técnico y hot wallet para liquidez inmediata. Separar cartera a largo plazo (cold storage) de la operativa activa es lo que mantiene el riesgo bajo control. El detalle completo está en <a href="trading.html#estrategias">Estrategias de Trading</a>.</p>
+        </article>
+
+        <article class="post" id="post-linux73" data-tags="linux kernel">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+            <a class="tag" href="noticias.html?tag=kernel">KERNEL</a>
+          </div>
+          <h3 class="post-title"><a href="#post-linux73" class="post-link">Linux 7.3 llega con mejoras de memoria que prometen soltar RAM como nunca</a></h3>
+          <p class="post-body">La próxima versión del kernel trae dos cambios en la gestión de memoria que los desarrolladores llevan tiempo persiguiendo: optimizaciones en la liberación de páginas que, según las primeras pruebas, dejan el sistema mucho más holgado bajo carga. Por otro lado, el sistema de archivos Btrfs estrena mejoras de rendimiento que en algunos escenarios se disparan hasta triplicar o quintuplicar la velocidad de ciertas operaciones. AMD también se lleva su parte: los servidores EPYC 9005 escalan bien al llenarlos de módulos DDR5. En resumen, una actualización pensada para quienes aprietan el hardware al máximo.</p>
+        </article>
+
+        <article class="post" id="post-framework" data-tags="hardware framework">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=hardware">HARDWARE</a>
+            <a class="tag" href="noticias.html?tag=framework">FRAMEWORK</a>
+          </div>
+          <h3 class="post-title"><a href="#post-framework" class="post-link">Framework rompe su silencio: así arregla los portátiles Ryzen que se quedaban "ladrillo"</a></h3>
+          <p class="post-body">Varios usuarios de los Framework con procesador Ryzen 7040 reportaron que una actualización de BIOS dejaba el equipo inusable, y la conversación se calentó rápido en los foros. La compañía ha salido a explicar qué pasó y ha habilitado una vía de recuperación para quienes ya se vieron afectados, además de pausar la mala versión. El episodio sirve de recordatorio de algo que defendemos aquí: actualizar el firmware es importante, pero conviene saber a qué te expones antes de darle a "instalar".</p>
+        </article>
+
+        <article class="post" id="post-cloudflare" data-tags="internet cloudflare">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=internet">INTERNET</a>
+            <a class="tag" href="noticias.html?tag=cloudflare">CLOUDFLARE</a>
+          </div>
+          <h3 class="post-title"><a href="#post-cloudflare" class="post-link">Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</a></h3>
+          <p class="post-body">Cloudflare presenta un cambio que promete alterar cómo funciona internet y, sobre todo, cómo se monetiza el contenido. En el vídeo se explica un modelo nuevo mediante el cual los creadores y sitios web podrán obtener ingresos de una forma distinta a la publicidad tradicional. Aquí el resumen y el enlace al análisis completo:</p>
+          <div class="post-video">
+            <iframe src="https://www.youtube-nocookie.com/embed/qT784npVXF4" title="Cloudflare va a cambiar internet para siempre" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+        </article>
+
+        <article class="post" id="post-terminal-ia" data-tags="web ia">
+          <div class="post-meta"><span class="post-date">19 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=web">WEB</a>
+            <a class="tag" href="noticias.html?tag=ia">IA</a>
+          </div>
+          <h3 class="post-title"><a href="#post-terminal-ia" class="post-link">BitForge estrena Terminal con IA y buscador de noticias</a></h3>
+          <p class="post-body">La web ahora incluye una pestaña <strong>Terminal</strong> con apariencia de chat (estilo GPT/Gemini) que responde con IA real vía OpenRouter. La IA puede leer esta misma sección de noticias y contestar a preguntas como "¿qué hay de nuevo?". También sumamos esta página de noticias, donde iremos publicando novedades día a día sobre Linux, IA y Flipper Zero.</p>
+        </article>
+
+        <!-- ============================================================
+             PLANTILLA: copia este bloque <article> y pégalo encima
+             del anterior para añadir una noticia nueva.
+             Pon un id único (post-xxx) y usa class="post-link" en el título.
+        ============================================================ -->
+        <article class="post" id="post-ejemplo" data-tags="ejemplo">
+          <div class="post-meta"><span class="post-date">18 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=ejemplo">EJEMPLO</a>
+          </div>
+          <h3 class="post-title"><a href="#post-ejemplo" class="post-link">Título de la noticia</a></h3>
+          <p class="post-body">Escribe aquí el texto de la noticia. Puedes añadir varios párrafos. Para enlazar a una fuente usa
+          <a href="https://example.com" target="_blank" rel="noopener noreferrer">este formato de enlace</a>.</p>
+        </article>
+        <!-- FIN PLANTILLA -->
+
+        <article class="post" id="post-terminal-demo" data-tags="ia">
+          <div class="post-meta"><span class="post-date">17 AGO 2026</span>
+            <a class="tag" href="noticias.html?tag=ia">IA</a>
+          </div>
+          <h3 class="post-title"><a href="#post-terminal-demo" class="post-link">BitForge abre su Terminal de demostración</a></h3>
+          <p class="post-body">Añadimos una pestaña "Terminal" con apariencia de chat (estilo GPT/Gemini) para probar la interfaz de conversación. Por ahora es solo visual; la IA real llegaría conectando una API.</p>
+        </article>
+
+      </div>
+
+      <!-- Paginación -->
+      <div class="pager" id="pager"></div>
+
+      <!-- Comentarios (Giscus) -->
+      <div class="comments-title">💬 Comentarios</div>
+      <div class="giscus" id="giscus-container"></div>
+    </div>
+
     <!-- SIDEBAR -->
-    <aside class="news-side">      <div class="side-box">        <h4 class="side-title">Etiquetas</h4>        <div class="tag-cloud" id="tagCloud"></div>      </div>      <div class="side-box">        <h4 class="side-title">Últimas noticias</h4>        <div class="recent-list" id="recentList"></div>      </div>      <div class="side-box">        <h4 class="side-title">Suscríbete</h4>        <a class="rss-link" href="rss.xml" target="_blank" rel="noopener noreferrer">📡 RSS feed</a>      </div>    </aside>  </div></section><div class="post-modal-overlay" id="postModal" aria-hidden="true">  <div class="post-modal" role="dialog" aria-label="Noticia">    <button class="post-modal-close" id="postModalClose" aria-label="Cerrar">✕</button>    <div class="post-modal-body" id="postModalBody"></div>  </div></div><footer class="footer">  <p>BitForge · Hecho para curiosos de la tecnología</p>  <p class="dim">Proyecto web estático · sin dependencias externas</p></footer><script src="script.js"></script><script src="bg-figures.js"></script><script src="noticias.js"></script><div class="terminal-overlay" id="terminalOverlay" aria-hidden="true">  <div class="terminal-window" role="dialog" aria-label="BitForge Terminal">    <div class="terminal-head">      <div class="terminal-title">        <span class="terminal-dot"></span> BitForge <span class="dim">Terminal</span>      </div>      <button class="terminal-close" id="terminalClose" aria-label="Cerrar">✕</button>    </div>    <div class="terminal-chat" id="terminalChat">      <div class="msg bot">        <div class="avatar">BF</div>        <div class="bubble">¡Hola! Soy la terminal de BitForge. Escribe aquí tu duda de Linux, IA o Flipper Zero. (Demo visual — aún sin IA conectada.)</div>      </div>    </div>    <div class="terminal-input">      <div class="attach-row">        <button class="attach-btn" title="Adjuntar imagen" id="attachImg">🖼️</button>        <button class="attach-btn" title="Adjuntar archivo" id="attachFile">📎</button>        <button class="attach-btn" title="Más" id="attachMore">➕</button>        <span class="attach-name" id="attachName"></span>      </div>      <div class="input-row">        <textarea id="terminalText" rows="1" placeholder="Escribe un mensaje…"></textarea>        <button class="send-btn" id="terminalSend">➤</button>      </div>      <input type="file" id="fileImg" accept="image/*" hidden />      <input type="file" id="fileAny" hidden />    </div>  </div></div><script type="application/ld+json">{  "@context": "https://schema.org",  "@type": "ItemList",  "name": "Noticias de BitForge",  "itemListElement": [
-    {"@type":"ListItem","position":1,"item":{"@type":"NewsArticle","headline":"ToxicPanda evoluciona: el malware de Android ya apunta a 349 apps y obedece 167 comandos remotos","url":"https://psyx3x.github.io/bitforge/noticias.html#toxicpanda-evoluciona-el-malware-de-android-ya-apunta-a-349-apps-y-obedece-167-comandos-remotos","datePublished":"2026-08-24","author":{"@type":"Organization","name":"BitForge"}}},
-    {"@type":"ListItem","position":2,"item":{"@type":"NewsArticle","headline":"Pine64 paraliza sus dispositivos Linux por la escasez de memoria; Framework presenta el Laptop 12 con Wildcat Lake","url":"https://psyx3x.github.io/bitforge/noticias.html#pine64-paraliza-sus-dispositivos-linux-por-la-escasez-de-memoria-framework-presenta-el-laptop-12-con-wildcat-lake","datePublished":"2026-08-24","author":{"@type":"Organization","name":"BitForge"}}},
-    {"@type":"ListItem","position":3,"item":{"@type":"NewsArticle","headline":"AROS, el sistema compatible con Amiga, ya arranca directo sobre Raspberry Pi (32 y 64 bits)","url":"https://psyx3x.github.io/bitforge/noticias.html#aros-el-sistema-compatible-con-amiga-ya-arranca-directo-sobre-raspberry-pi-32-y-64-bits","datePublished":"2026-08-24","author":{"@type":"Organization","name":"BitForge"}}},
-    {"@type":"ListItem","position":4,"item":{"@type":"NewsArticle","headline":"El misterio de la memoria: ratones en hibernacion borran sinapsis pero conservan recuerdos","url":"https://psyx3x.github.io/bitforge/noticias.html#el-misterio-de-la-memoria-ratones-en-hibernacion-borran-sinaspsis-pero-conservan-recuerdos","datePublished":"2026-08-24","author":{"@type":"Organization","name":"BitForge"}}}
-  ]]}</script></body></html>
+    <aside class="news-side">
+      <div class="side-box">
+        <h4 class="side-title">Etiquetas</h4>
+        <div class="tag-cloud" id="tagCloud"></div>
+      </div>
+      <div class="side-box">
+        <h4 class="side-title">Últimas noticias</h4>
+        <div class="recent-list" id="recentList"></div>
+      </div>
+      <div class="side-box">
+        <h4 class="side-title">Suscríbete</h4>
+        <a class="rss-link" href="rss.xml" target="_blank" rel="noopener noreferrer">📡 RSS feed</a>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<div class="post-modal-overlay" id="postModal" aria-hidden="true">
+  <div class="post-modal" role="dialog" aria-label="Noticia">
+    <button class="post-modal-close" id="postModalClose" aria-label="Cerrar">✕</button>
+    <div class="post-modal-body" id="postModalBody"></div>
+  </div>
+</div>
+
+<footer class="footer">
+  <p>BitForge · Hecho para curiosos de la tecnología</p>
+  <p class="dim">Proyecto web estático · sin dependencias externas</p>
+</footer>
+
+<script src="script.js"></script>
+<script src="bg-figures.js"></script>
+<script src="noticias.js"></script>
+<div class="terminal-overlay" id="terminalOverlay" aria-hidden="true">
+  <div class="terminal-window" role="dialog" aria-label="BitForge Terminal">
+    <div class="terminal-head">
+      <div class="terminal-title">
+        <span class="terminal-dot"></span> BitForge <span class="dim">Terminal</span>
+      </div>
+      <button class="terminal-close" id="terminalClose" aria-label="Cerrar">✕</button>
+    </div>
+    <div class="terminal-chat" id="terminalChat">
+      <div class="msg bot">
+        <div class="avatar">BF</div>
+        <div class="bubble">¡Hola! Soy la terminal de BitForge. Escribe aquí tu duda de Linux, IA o Flipper Zero. (Demo visual — aún sin IA conectada.)</div>
+      </div>
+    </div>
+    <div class="terminal-input">
+      <div class="attach-row">
+        <button class="attach-btn" title="Adjuntar imagen" id="attachImg">🖼️</button>
+        <button class="attach-btn" title="Adjuntar archivo" id="attachFile">📎</button>
+        <button class="attach-btn" title="Más" id="attachMore">➕</button>
+        <span class="attach-name" id="attachName"></span>
+      </div>
+      <div class="input-row">
+        <textarea id="terminalText" rows="1" placeholder="Escribe un mensaje…"></textarea>
+        <button class="send-btn" id="terminalSend">➤</button>
+      </div>
+      <input type="file" id="fileImg" accept="image/*" hidden />
+      <input type="file" id="fileAny" hidden />
+    </div>
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Noticias de BitForge",
+  "itemListElement": [
+    {"@type":"ListItem","position":1,"item":{"@type":"NewsArticle","headline":"Linux Mint 22.2 pulsa la renovación de su escritorio y mira de cerca el rendimiento","url":"https://psyx3x.github.io/bitforge/noticias.html#linux-mint-22-2-pulsa-la-renovacion-de-su-escritorio-y-mira-de-cerca-el-rendimiento","datePublished":"2026-08-22","author":{"@type":"Organization","name":"BitForge"}}},
+    {"@type":"ListItem","position":2,"item":{"@type":"NewsArticle","headline":"Ollama suma modelos multimodales y baja el listón para correr IA en tu propia máquina","url":"https://psyx3x.github.io/bitforge/noticias.html#ollama-suma-modelos-multimodales-y-baja-el-liston-para-correr-ia-en-tu-propia-maquina","datePublished":"2026-08-22","author":{"@type":"Organization","name":"BitForge"}}},
+    {"@type":"ListItem","position":3,"item":{"@type":"NewsArticle","headline":"El ecosistema de firmwares del Flipper Zero crece: Xtreme y Momentum suman comunidad","url":"https://psyx3x.github.io/bitforge/noticias.html#el-ecosistema-de-firmwares-del-flipper-zero-crece-xtreme-y-momentum-suman-comunidad","datePublished":"2026-08-22","author":{"@type":"Organization","name":"BitForge"}}},
+    {"@type":"ListItem","position":4,"item":{"@type":"NewsArticle","headline":"Las webs estáticas resucitan con IA: buscadores y chat sin servidor gracias a Cloudflare Workers","url":"https://psyx3x.github.io/bitforge/noticias.html#las-webs-estaticas-resucitan-con-ia-buscadores-y-chat-sin-servidor-gracias-a-cloudflare-workers","datePublished":"2026-08-22","author":{"@type":"Organization","name":"BitForge"}}}
+  ]
+}
+</script>
+</body>
+</html>
