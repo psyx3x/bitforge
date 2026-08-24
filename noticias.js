@@ -2,7 +2,7 @@
 (function () {
   "use strict";
 
-  const PER_PAGE = 5;
+  const PER_PAGE = 3;
   const feed = document.getElementById("newsFeed");
   const posts = feed ? Array.from(feed.querySelectorAll(".post")) : [];
   const filterBar = document.getElementById("tagFilter");
