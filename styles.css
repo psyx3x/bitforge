@@ -68,6 +68,15 @@ body::before{
 .nav-links a:hover{color:var(--text)}
 .nav-links a:hover::after{width:100%}
 .nav-toggle{display:none;background:none;border:none;color:var(--text);font-size:1.6rem;cursor:pointer}
+.nav-social{
+  position:fixed;top:64px;right:0;left:0;z-index:49;
+  display:flex;align-items:center;justify-content:flex-end;gap:22px;flex-wrap:wrap;
+  padding:10px clamp(18px,5vw,48px);
+  backdrop-filter:blur(14px);background:rgba(7,9,15,0.4);
+  border-bottom:1px solid var(--border);
+}
+.nav-social a{color:var(--muted);text-decoration:none;font-size:.9rem;transition:color .2s}
+.nav-social a:hover{color:var(--text)}
 
 /* ===== HERO ===== */
 .hero{
