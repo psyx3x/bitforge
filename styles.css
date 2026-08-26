@@ -58,10 +58,17 @@ body::before{
 }
 .nav.scrolled{background:rgba(7,9,15,0.85);padding:12px clamp(18px,5vw,48px)}
 .brand{font-weight:800;font-size:1.25rem;letter-spacing:.5px;text-decoration:none;color:var(--text);display:flex;align-items:center;gap:10px}
-.brand-mark{
-  background:linear-gradient(135deg,var(--accent),var(--accent-2));
-  -webkit-background-clip:text;background-clip:text;color:transparent;font-weight:900;
+.brand-logo{
+  width:34px;height:34px;border-radius:50%;object-fit:cover;
+  border:1px solid rgba(160,107,255,.5);
+  box-shadow:0 0 10px rgba(160,107,255,.55), 0 0 22px rgba(91,140,255,.35);
+  animation:brandPulse 2.6s ease-in-out infinite;
 }
+@keyframes brandPulse{
+  0%,100%{box-shadow:0 0 10px rgba(160,107,255,.55), 0 0 22px rgba(91,140,255,.35);transform:scale(1)}
+  50%{box-shadow:0 0 16px rgba(200,120,255,.85), 0 0 34px rgba(120,170,255,.6);transform:scale(1.06)}
+}
+.brand-text{background:linear-gradient(120deg,var(--text),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
 .nav-links{display:flex;gap:26px}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;position:relative;transition:color .2s}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s}
