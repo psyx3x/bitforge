@@ -68,7 +68,18 @@ body::before{
   0%,100%{box-shadow:0 0 10px rgba(160,107,255,.55), 0 0 22px rgba(91,140,255,.35);transform:scale(1)}
   50%{box-shadow:0 0 16px rgba(200,120,255,.85), 0 0 34px rgba(120,170,255,.6);transform:scale(1.06)}
 }
-.brand-text{background:linear-gradient(120deg,var(--text),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent}
+.brand-text{background:linear-gradient(120deg,var(--text),var(--accent));-webkit-background-clip:text;background-clip:text;color:transparent;transition:text-shadow .25s, filter .25s}
+.brand:hover .brand-logo{
+  animation-play-state:paused;
+  transform:scale(1.12) rotate(-6deg);
+  box-shadow:0 0 20px rgba(200,120,255,.95), 0 0 40px rgba(120,170,255,.7);
+  border-color:rgba(200,140,255,.9);
+}
+.brand:hover .brand-text{
+  filter:brightness(1.25);
+  text-shadow:0 0 14px rgba(120,170,255,.65);
+}
+.brand{transition:transform .2s}
 .nav-links{display:flex;gap:26px}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:.95rem;position:relative;transition:color .2s}
 .nav-links a::after{content:"";position:absolute;left:0;bottom:-6px;height:2px;width:0;background:linear-gradient(90deg,var(--accent),var(--accent-2));transition:width .25s}
