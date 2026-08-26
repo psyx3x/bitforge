@@ -364,7 +364,61 @@ $ neofetch
   </div>
 </div>
 
+<!-- ===== MI PANEL (centro personal, guarda en localStorage) ===== -->
+<section class="panel-section" id="panel">
+  <div class="panel-head">
+    <h2 class="panel-title">Mi Panel</h2>
+    <p class="panel-desc">Tu centro personal. Lo que guardes aquí se queda en tu navegador: tu YouTube, tus accesos y tus enlaces, todo en un sitio sin salir de la web.</p>
+  </div>
+
+  <div class="panel-grid">
+    <!-- Card 1: Ver YouTube -->
+    <div class="panel-card">
+      <div class="panel-card-ico">📺</div>
+      <h3>Ver YouTube aquí</h3>
+      <p class="panel-card-text">Pega el enlace de un vídeo y míralo dentro de la web.</p>
+      <div class="panel-row">
+        <input type="text" id="ytInput" class="panel-input" placeholder="https://youtube.com/wat..." />
+        <button class="btn btn-primary" id="ytLoad">Cargar</button>
+      </div>
+      <div class="yt-frame-wrap" id="ytFrameWrap" hidden>
+        <iframe id="ytFrame" class="yt-frame" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+    </div>
+
+    <!-- Card 2: Accesos rápidos -->
+    <div class="panel-card">
+      <div class="panel-card-ico">⚡</div>
+      <h3>Accesos rápidos</h3>
+      <p class="panel-card-text">Abre tu cuenta (ya logueada en tu navegador) en una pestaña nueva.</p>
+      <div class="panel-quick">
+        <a class="panel-quick-btn" href="https://web.whatsapp.com/" target="_blank" rel="noopener noreferrer">WhatsApp Web</a>
+        <a class="panel-quick-btn" href="https://web.telegram.org/" target="_blank" rel="noopener noreferrer">Telegram</a>
+        <a class="panel-quick-btn" href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer">YouTube</a>
+        <a class="panel-quick-btn" href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a class="panel-quick-btn" href="https://www.tiktok.com/" target="_blank" rel="noopener noreferrer">TikTok</a>
+        <a class="panel-quick-btn" href="https://x.com/" target="_blank" rel="noopener noreferrer">X</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Card 3: Mis enlaces guardados -->
+  <div class="panel-card panel-card-wide">
+    <div class="panel-card-ico">📌</div>
+    <h3>Mis enlaces guardados</h3>
+    <p class="panel-card-text">Añade cualquier enlace y se guardará en tu navegador para la próxima vez.</p>
+    <div class="panel-row">
+      <input type="text" id="linkName" class="panel-input" placeholder="Nombre (ej: Mi canal)" />
+      <input type="text" id="linkUrl" class="panel-input" placeholder="https://..." />
+      <button class="btn btn-primary" id="linkAdd">Añadir</button>
+    </div>
+    <div class="panel-links" id="savedLinks"></div>
+    <p class="panel-empty" id="linksEmpty">Aún no has guardado nada. Añade tu primer enlace arriba.</p>
+  </div>
+</section>
+
 <script src="script.js"></script>
+<script src="panel.js"></script>
 <script src="bg-figures.js"></script>
 </body>
 </html>
