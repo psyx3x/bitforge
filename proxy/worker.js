@@ -69,6 +69,40 @@ export default {
       "Responde en español, de forma clara y cercana. " +
       "Si el usuario pregunta por noticias o novedades, busca en la sección de NOTICIAS que aparece abajo " +
       "y cita la información encontrada. Si no aparece en las noticias, díselo con honestidad.\n\n" +
+      "REGLAS ESTRICTAS DE ENLACES:\n" +
+      "- Usa EXCLUSIVAMENTE los enlaces del MAPA DE LA WEB que aparece abajo. NUNCA inventes rutas ni archivos.\n" +
+      "- Linux, IA, Trading, Tutoriales, Temas, Novedades, Flipper son SECCIONES DENTRO de index.html (usa https://psyx3x.github.io/bitforge/index.html#linux y similares). NO existen páginas separadas como /linux.\n" +
+      "- Solo hay estas páginas: index.html, noticias.html, trading.html, hacking.html.\n\n" +
+      "=== MAPA COMPLETO DE LA WEB BITFORGE (enlaces reales, NO inventes) ===\n" +
+      "Páginas del sitio:\n" +
+      "  - Principal: https://psyx3x.github.io/bitforge/index.html\n" +
+      "  - Noticias (blog diario): https://psyx3x.github.io/bitforge/noticias.html\n" +
+      "  - Trading: https://psyx3x.github.io/bitforge/trading.html\n" +
+      "  - Hacking: https://psyx3x.github.io/bitforge/hacking.html\n" +
+      "Secciones dentro de index.html (anclas):\n" +
+      "  - Inicio: https://psyx3x.github.io/bitforge/index.html#hero\n" +
+      "  - Temas: https://psyx3x.github.io/bitforge/index.html#temas\n" +
+      "  - Linux: https://psyx3x.github.io/bitforge/index.html#linux\n" +
+      "  - IA: https://psyx3x.github.io/bitforge/index.html#ia\n" +
+      "  - Trading: https://psyx3x.github.io/bitforge/index.html#trading\n" +
+      "  - Tutoriales: https://psyx3x.github.io/bitforge/index.html#tutoriales\n" +
+      "  - Novedades: https://psyx3x.github.io/bitforge/index.html#novedades\n" +
+      "  - Flipper Zero: https://psyx3x.github.io/bitforge/index.html#flipper\n" +
+      "  - Arduino: https://psyx3x.github.io/bitforge/index.html#arduino | ESP32: https://psyx3x.github.io/bitforge/index.html#esp32 | Controladoras: https://psyx3x.github.io/bitforge/index.html#controladoras | Gadgets: https://psyx3x.github.io/bitforge/index.html#gadgets\n" +
+      "Submenú HACKING (desde https://psyx3x.github.io/bitforge/hacking.html o el menú):\n" +
+      "  - Linux y distros: Kali https://www.kali.org/ , Parrot https://www.parrotsec.org/ , Ubuntu https://ubuntu.com/ , Debian https://www.debian.org/ , Mint https://linuxmint.com/ , Fedora https://fedoraproject.org/ , Arch https://archlinux.org/\n" +
+      "  - Arduino: https://psyx3x.github.io/bitforge/index.html#arduino | ESP32: https://psyx3x.github.io/bitforge/index.html#esp32 | Controladoras: https://psyx3x.github.io/bitforge/index.html#controladoras | Gadgets: https://psyx3x.github.io/bitforge/index.html#gadgets\n" +
+      "  - Flipper Zero y firmwares: Flipper https://flipperzero.one/ , Oficial https://github.com/flipperdevices/flipperzero-firmware , Unleashed https://github.com/DarkFlippers/unleashed-firmware , RogueMaster https://github.com/RogueMaster/flipperzero-firmware-wPlugins , Xtreme https://github.com/Flipper-XFW/Xtreme-Firmware , Momentum https://github.com/next-flip/momentum-firmware , Bruce https://bruce.computer/ , Evil Portal https://github.com/bigbrodude6119/flipper-zero-evil-portal , WiFi Marauder https://github.com/justcallmekoko/ESP32Marauder\n" +
+      "  - ESP32 ESP-IDF: https://docs.espressif.com/projects/esp-idf/en/latest/esp32/\n" +
+      "Submenú IA:\n" +
+      "  - Ollama y modelos: https://ollama.com/ (glm-5.2, deepseek-v4-flash, kimi-k3, qwen3.8, llama3.1, mistral, deepseek-coder, codellama, gemma2 en https://ollama.com/library/<modelo>)\n" +
+      "  - Hugging Face: https://huggingface.co/ | Buscador de IA: https://unvelai.com/ia/\n" +
+      "Submenú TRADING (https://psyx3x.github.io/bitforge/trading.html):\n" +
+      "  - Estrategias: https://psyx3x.github.io/bitforge/trading.html#estrategias | Cripto: https://psyx3x.github.io/bitforge/trading.html#cripto | Mercado tradicional: https://psyx3x.github.io/bitforge/trading.html#tradicional | Fundamental: https://psyx3x.github.io/bitforge/trading.html#fundamental\n" +
+      "Menú social (abajo a la derecha): WhatsApp Web https://web.whatsapp.com/ , Telegram https://web.telegram.org/ , YouTube https://www.youtube.com/ , Instagram https://www.instagram.com/ , TikTok https://www.tiktok.com/ , X https://x.com/\n" +
+      "Blog externo referenciado: https://tecnologia4youu.blogspot.com/\n" +
+      "REGLAS: usa SOLO estos enlaces. Linux/IA/Trading/Tutoriales son secciones de index.html (anclas #), NO páginas aparte. Solo existen index.html, noticias.html, trading.html, hacking.html.\n" +
+      "=== FIN MAPA ===\n\n" +
       "=== NOTICIAS PUBLICADAS EN BITFORGE ===\n" +
       (newsText || "(aún no hay noticias publicadas)") +
       "\n=== FIN NOTICIAS ===";
