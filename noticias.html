@@ -139,6 +139,69 @@
     <!-- COLUMNA PRINCIPAL -->
     <div class="news-main">
       <div class="news-feed" id="newsFeed">
+      <!-- ===== NOTICIAS REALES 28 AGO 2026 (4, fuentes verificadas) ===== -->
+      <article class="post" id="post-20260828-cisa-kev" data-tags="ciberseguridad linux">
+        <div class="post-meta"><span class="post-date">28 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+          <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+        </div>
+        <a class="post-link" href="#post-20260828-cisa-kev"><h3 class="post-title">CISA añade seis vulnerabilidades explotadas activamente: Citrix NetScaler, SQL Server, kernel Linux y Red Hat</h3></a>
+        <p class="post-excerpt">El catálogo KEV de CISA suma seis fallos con explotación confirmada en la vida real. El más urgente es CVE-2026-8452 en Citrix NetScaler ADC/Gateway, con fecha límite de parcheo para agencias federales el 29 de agosto.</p>
+        <div class="post-body">
+          <p>CISA actualizó el 26 de agosto su catálogo de Known Exploited Vulnerabilities con seis CVE de los que ya hay evidencia de explotación activa. Entre ellos, CVE-2026-8452 (desbordamiento de memoria en Citrix NetScaler ADC y NetScaler Gateway, que puede provocar denegación de servicio) y CVE-2019-1068 (ejecución remota de código en Microsoft SQL Server).</p>
+          <p>La lista incluye además fallos antiguos que siguen dando resultado a los atacantes: CVE-2022-0995 (escritura fuera de límites en el kernel de Linux), CVE-2015-3246 (condición de carrera en libuser de Red Hat), CVE-2015-5287 (escalada de privilegios en ABRT) y CVE-2021-23758 (deserialización insegura en Ajax.NET Professional).</p>
+          <p>CISA pide a las agencias federales aplicar los parches de CVE-2019-1068 y CVE-2026-8452 antes del 29 de agosto de 2026, y el resto antes del 9 de septiembre. Moraleja para cualquiera: un CVE de 2015 sigue siendo un CVE si no lo has parcheado.</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260828-cisa-kev">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://www.cisa.gov/news-events/alerts/2026/08/26/cisa-adds-six-known-exploited-vulnerabilities-catalog" target="_blank" rel="noopener noreferrer">CISA</a></span>
+      </article>
+
+      <article class="post" id="post-20260828-gemini-transcribe" data-tags="ia">
+        <div class="post-meta"><span class="post-date">28 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=ia">IA</a>
+        </div>
+        <a class="post-link" href="#post-20260828-gemini-transcribe"><h3 class="post-title">Google presenta Gemini 3.5 Transcribe, su modelo de voz a texto más preciso</h3></a>
+        <p class="post-excerpt">Google anunció el 26 de agosto Gemini 3.5 Transcribe, un modelo de transcripción en tiempo real que convierte audio crudo en texto ya formateado, incluso con ruido de fondo y jerga técnica.</p>
+        <div class="post-body">
+          <p>A diferencia de los reconocedores de voz clásicos, que se atascan con ruido ambiente, vocabulario especializado y muletillas, Gemini 3.5 Transcribe entrega directamente texto limpio y formateado. Google lo plantea para agentes de voz, subtitulado en directo y análisis posterior de llamadas.</p>
+          <p>Se ofrece por dos vías: streaming bidireccional con latencia por debajo del segundo mediante la Live API (<code>gemini-3.5-transcribe-live</code>), y procesado de audio grabado con atribución de hablante y marcas de tiempo por palabra a través de la Interactions API (<code>gemini-3.5-transcribe</code>).</p>
+          <p>Está en vista previa pública en la Gemini API vía Google AI Studio y en Gemini Enterprise Agent Platform. Para usuarios finales ya funciona en la app de Gemini en macOS y en Rambler en Android en países y idiomas seleccionados.</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260828-gemini-transcribe">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/gemini-3-5-transcribe/" target="_blank" rel="noopener noreferrer">Google Blog</a></span>
+      </article>
+
+      <article class="post" id="post-20260828-qwen38-flash-next" data-tags="ia">
+        <div class="post-meta"><span class="post-date">28 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=ia">IA</a>
+        </div>
+        <a class="post-link" href="#post-20260828-qwen38-flash-next"><h3 class="post-title">Qwen libera Qwen3.8-Flash-Next, adelanto abierto de la arquitectura Qwen4, con soporte day-0 en SGLang</h3></a>
+        <p class="post-excerpt">El equipo Qwen ha publicado en abierto Qwen3.8-Flash-Next, un modelo multimodal MoE que funciona como anticipo de Qwen4. SGLang le da soporte desde el primer día, junto a NVIDIA y AMD.</p>
+        <div class="post-body">
+          <p>Según el anuncio de LMSYS del 26 de agosto, Qwen3.8-Flash-Next cumple para Qwen4 el mismo papel que Qwen3-Next cumplió para Qwen3.5: sirve de vista previa de la arquitectura que viene.</p>
+          <p>Mantiene el diseño híbrido Gated DeltaNet + Gated Attention que Qwen ha ido usando desde Qwen3.5 hasta Qwen3.8. El trabajo se hizo en colaboración con los equipos de Qwen, NVIDIA y AMD, de modo que SGLang ofrece soporte day-0.</p>
+          <p>Para quien quiera servirlo con menos VRAM, también se publicó desde el primer día un checkpoint cuantizado a NVFP4 (RadixArk/Qwen3.8-Flash-Next-NVFP4).</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260828-qwen38-flash-next">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://www.lmsys.org/blog/2026-08-26-qwen-flash-next/" target="_blank" rel="noopener noreferrer">LMSYS Org</a></span>
+      </article>
+
+      <article class="post" id="post-20260828-kernel-72" data-tags="linux kernel">
+        <div class="post-meta"><span class="post-date">28 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+          <a class="tag" href="noticias.html?tag=kernel">KERNEL</a>
+        </div>
+        <a class="post-link" href="#post-20260828-kernel-72"><h3 class="post-title">Linux 7.2 ya es la rama estable: la 7.0 quedó sin soporte y la 5.10 LTS acaba a final de año</h3></a>
+        <p class="post-excerpt">El kernel estable actual es la serie 7.2, publicada el 16 de agosto de 2026. La 7.1 sigue recibiendo actualizaciones (7.1.9), mientras que la 7.0 dejó de tener soporte en junio.</p>
+        <div class="post-body">
+          <p>Linux 7.2 se liberó el 16 de agosto de 2026 y es la rama estable de referencia. La 7.1, salida el 14 de junio, continúa con mantenimiento y publicó la 7.1.9 el 19 de agosto.</p>
+          <p>La rama 7.0 (12 de abril de 2026) terminó su ciclo de soporte el 27 de junio con la 7.0.14, así que quien siga ahí está sin parches de seguridad. La 6.19, última de la serie 6.x, cerró en abril.</p>
+          <p>En LTS conviene mirar el calendario: 5.10 y 5.15 dejan de recibir soporte el 31 de diciembre de 2026, mientras que 6.6 LTS aguanta hasta finales de 2027. Si administras máquinas con kernels antiguos, es buen momento para planificar la migración.</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260828-kernel-72">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://endoflife.date/linux" target="_blank" rel="noopener noreferrer">endoflife.date (Linux Kernel)</a></span>
+      </article>
+
       <!-- ===== NOTICIA: Acciones tokenizadas en Base (fuente: blog.base.org) ===== -->
       <article class="post" id="post-base-stocks" data-tags="trading cripto">
         <img class="post-thumb" src="https://storage.googleapis.com/papyrus_images/4fb50fb27541f233de2f36b98a999b50152ef56ab18e762e4cbd9a7ceee4186b.jpg" alt="Acciones tokenizadas en Base" loading="lazy" />
