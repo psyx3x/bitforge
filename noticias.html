@@ -140,6 +140,75 @@
     <div class="news-main">
       <div class="news-feed" id="newsFeed">
 
+      <!-- ===== NOTICIAS REALES 30 AGO 2026 (4, fuentes verificadas) ===== -->
+      <article class="post" id="post-20260830-go127" data-tags="web linux">
+        <img class="post-thumb" src="https://picsum.photos/seed/go127/800/450" alt="Go 1.27" loading="lazy" />
+        <div class="post-meta"><span class="post-date">30 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=web">WEB</a>
+          <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+        </div>
+        <a class="post-link" href="#post-20260830-go127"><h3 class="post-title">Go 1.27 ya está disponible: métodos genéricos, JSON v2 y firma post-cuántica ML-DSA</h3></a>
+        <p class="post-excerpt">El equipo de Go ha publicado la versión 1.27 del lenguaje. Destacan los métodos genéricos, el nuevo paquete encoding/json/v2, asignación de memoria hasta un 30% más rápida y la firma post-cuántica ML-DSA (FIPS 204) integrada en TLS y x509.</p>
+        <div class="post-body">
+          <p>Go 1.27, publicado el 19 de agosto de 2026 por el equipo de Go, trae cambios de calado en el lenguaje, la toolchain, el runtime y la librería estándar. Es la primera versión con métodos genéricos de primera clase, algo que la comunidad esperaba desde hace tiempo.</p>
+          <p>En el lenguaje ahora se admiten métodos genéricos (por ejemplo <code>math/rand/v2.Rand.N[Int]</code>), se puede inicializar directamente un campo de una struct embebida en un literal, y la inferencia de tipos en funciones se amplía a asignaciones, conversiones y envíos por canal. La toolchain estrena modernizadores en <code>go fix</code> y <code>go doc</code> gana consultas <code>package@version</code>.</p>
+          <p>En la librería estándar destacan encoding/json/v2 (procesado JSON de alto nivel con opciones configurables, y el encoding/json clásico ahora se apoya en esa implementación) y crypto/mldsa, que implementa el esquema de firma post-cuántica ML-DSA (FIPS 204), ya integrado en crypto/x509 y crypto/tls. El runtime reduce hasta un 30% el coste de asignar objetos pequeños (&lt;80 B).</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260830-go127">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://go.dev/blog/go1.27" target="_blank" rel="noopener noreferrer">Go Dev Blog</a></span>
+      </article>
+
+      <article class="post" id="post-20260830-rust-arrayref" data-tags="ciberseguridad linux">
+        <img class="post-thumb" src="https://picsum.photos/seed/rust-arrayref/800/450" alt="Rust cadena de suministro" loading="lazy" />
+        <div class="post-meta"><span class="post-date">30 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+          <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+        </div>
+        <a class="post-link" href="#post-20260830-rust-arrayref"><h3 class="post-title">Ataque a la cadena de suministro de Rust: arrayref y otros tres crates se envenenan con un dropper en el build</h3></a>
+        <p class="post-excerpt">El equipo de seguridad de Rust confirmó el 20 de agosto un ataque: versiones maliciosas de arrayref, internment y append-only-vec introdujeron una dependencia (proc-macro1, typosquat de proc-macro2) que ejecutaba un segundo escalón al compilar.</p>
+        <div class="post-body">
+          <p>El 20 de agosto de 2026 el Rust Security Response Team verificó que el crate proc-macro1 era malicioso: su build script descargaba y ejecutaba un payload. Las versiones afectadas de arrayref@0.3.10, internment@0.8.7 y append-only-vec@0.1.9 estuvieron publicadas apenas entre 86 y 107 minutos antes de ser eliminadas de crates.io.</p>
+          <p>El truco es sutil: la lógica maliciosa vivía en la dependencia typosquat proc-macro1, así que simplemente compilar un proyecto que la resolvía bastaba para disparar el payload, sin necesidad de invocar nada del crate envenenado. arrayref suma unas 245 millones de descargas en total y está por debajo de winit, blake3 y gran parte de las toolchains de Solana y Ethereum.</p>
+          <p>Las versiones maliciosas fueron eliminadas, los crates yanked restaurados y las cuentas comprometidas bloqueadas. RustSec publicó el aviso RUSTSEC-2026-0260. Recomendación: revisar Cargo.lock y la caché de cargo, y tratar cualquier compilación afectada como un compromiso potencial del host.</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260830-rust-arrayref">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://blog.rust-lang.org/2026/08/20/supply-chain-attack-on-arrayref" target="_blank" rel="noopener noreferrer">Rust Blog</a></span>
+      </article>
+
+      <article class="post" id="post-20260830-ms-patch" data-tags="ciberseguridad">
+        <img class="post-thumb" src="https://picsum.photos/seed/ms-patch-tuesday/800/450" alt="Microsoft Patch Tuesday" loading="lazy" />
+        <div class="post-meta"><span class="post-date">30 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=ciberseguridad">CIBERSEGURIDAD</a>
+        </div>
+        <a class="post-link" href="#post-20260830-ms-patch"><h3 class="post-title">Patch Tuesday de agosto 2026: Microsoft corrige 394 vulnerabilidades, tres de ellas zero-day</h3></a>
+        <p class="post-excerpt">Microsoft publicó el 11 de agosto su Patch Tuesday con 394 fallos corregidos (150 de elevación de privilegios, 132 de ejecución remota) e incluye tres zero-days ya explotados o divulgados. Parchear cuanto antes.</p>
+        <div class="post-body">
+          <p>Microsoft lanzó el 11 de agosto de 2026 su actualización de seguridad de agosto cubriendo 394 vulnerabilidades en Windows, Office, SharePoint Server, Azure, .NET, PowerShell, Visual Studio Code y más. Es uno de los lotes más grandes del año.</p>
+          <p>El paquete incluye tres zero-days. Entre los más destacados: CVE-2026-68820 (Windows Ancillary Function Driver for WinSock, elevación de privilegios, ya explotado en la wild) y CVE-2026-62832 (Windows User Profile Service, elevación de privilegios, divulgado públicamente). También hay RCE críticos como CVE-2026-62889 en Windows SSTP y CVE-2026-71331 en Azure Attestation.</p>
+          <p>El reparto por impacto: 150 de elevación de privilegios, 132 de ejecución remota de código, 66 de divulgación de información, 21 de spoofing, 9 de bypass de características de seguridad y 4 de manipulación. Microsoft marca todas como que requieren acción del cliente, así que ninguna se queda solo en controles compensatorios.</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260830-ms-patch">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://cybersecuritynews.com/microsoft-patch-tuesday-update-august-2026/" target="_blank" rel="noopener noreferrer">Cybersecurity News</a></span>
+      </article>
+
+      <article class="post" id="post-20260830-xwayland" data-tags="linux web">
+        <img class="post-thumb" src="https://picsum.photos/seed/xwayland261/800/450" alt="XWayland 26.1" loading="lazy" />
+        <div class="post-meta"><span class="post-date">30 AGO 2026</span>
+          <a class="tag" href="noticias.html?tag=linux">LINUX</a>
+          <a class="tag" href="noticias.html?tag=web">WEB</a>
+        </div>
+        <a class="post-link" href="#post-20260830-xwayland"><h3 class="post-title">XWayland 26.1 RC1: la primera gran actualización en años trae puente de portapapeles y multi-seat</h3></a>
+        <p class="post-excerpt">Olivier Fourdan (Red Hat) anunció el 19 de agosto el primer candidato a release de XWayland 26.1, el primer lanzamiento de funciones desde XWayland 24.1 (2024). Añade puente de portapapeles en modo rootful, multi-seat vía Xi2 y elimina EGLStream.</p>
+        <div class="post-body">
+          <p>Olivier Fourdan, de Red Hat, anunció el 19 de agosto de 2026 el primer release candidate de XWayland 26.1, la primera versión con nuevas funciones desde XWayland 24.1 en 2024. Se acumulan cientos de cambios de los dos años transcurridos.</p>
+          <p>Entre las novedades: un puente de portapapeles y selección primaria en modo rootful (copiar y pegar entre clientes X11 y el resto del escritorio Wayland ya no requiere hacks, se activa con "-clipboard"), multi-seat vía X Input 2 (los seats de Wayland se reflejan en una jerarquía XInput 2), soporte del protocolo wl_fixes y mejor emulación de RandR. También se elimina el soporte de EGLStream, ya que el driver NVIDIA funciona bien sin él.</p>
+          <p>XWayland 26.1 mejora la compatibilidad de aplicaciones X11 en un mundo Wayland, clave para escritorios como GNOME y KDE y para clientes de escritorio remoto y VDI. Los detalles están en el anuncio en la lista de correo de X.Org; se anima a probarlo antes del release final.</p>
+        </div>
+        <a class="post-link read-more" href="#post-20260830-xwayland">Leer más →</a>
+        <span class="dim">Fuente: <a href="https://phoronix.com/news/XWayland-26.1-RC1" target="_blank" rel="noopener noreferrer">Phoronix</a></span>
+      </article>
+
+
       <!-- ===== NOTICIA: Ryanair + Google Cloud, alianza de IA 5 años (fuente: corporate.ryanair.com + googlecloudpresscorner.com) ===== -->
       <article class="post" id="post-ryanair-google-ai" data-tags="ia">
         <img class="post-thumb" src="https://picsum.photos/seed/ryanair-google-ai/800/450" alt="Ryanair y Google Cloud" loading="lazy" />
