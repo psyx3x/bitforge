@@ -5,9 +5,16 @@
     <link>https://psyx3x.github.io/bitforge/noticias.html</link>
     <description>Noticias de informática, Linux, IA y Flipper Zero, día a día.</description>
     <language>es-es</language>
-    <lastBuildDate>Tue, 19 Aug 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 00:00:00 +0000</lastBuildDate>
     <item>
-      <title>Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</title>
+        <title>Ryanair y Google Cloud sellan una alianza de IA de cinco años para automatizar sus operaciones</title>
+        <link>https://psyx3x.github.io/bitforge/noticias.html?tag=ia</link>
+        <description>Ryanair y Google Cloud anunciaron el 12 de agosto una alianza de cinco años: desplegarán Gemini Enterprise y Google Workspace a 35.000 empleados y usarán modelos DeepMind para la flota, en una estrategia de doble nube.</description>
+        <pubDate>Wed, 12 Aug 2026 00:00:00 +0000</pubDate>
+        <category>IA</category>
+      </item>
+    <item>
+        <title>Cloudflare va a cambiar internet para siempre: podrás monetizar de forma distinta</title>
       <link>https://psyx3x.github.io/bitforge/noticias.html?tag=cloudflare</link>
       <description>Cloudflare presenta un cambio que promete alterar cómo funciona internet y cómo se monetiza el contenido. Análisis del nuevo modelo.</description>
       <pubDate>Tue, 19 Aug 2026 00:00:00 +0000</pubDate>
