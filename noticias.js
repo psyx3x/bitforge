@@ -4,6 +4,37 @@
 
   const PER_PAGE = 5;
   const feed = document.getElementById("newsFeed");
+
+  // --- inyecta noticias desde window.NOTICIAS (noticias-data.js) ---
+  // Genera .post a partir de datos; no toca el HTML de noticias a mano.
+  function injectNoticias() {
+    if (!feed || !Array.isArray(window.NOTICIAS)) return;
+    // reverse(): el primer elemento del array queda arriba del todo
+    window.NOTICIAS.slice().reverse().forEach(function (n) {
+      var art = document.createElement("article");
+      art.className = "post";
+      art.id = n.id;
+      art.setAttribute("data-tags", (n.tags || []).join(" "));
+      var html = "";
+      if (n.thumb) {
+        html += '<img class="post-thumb" src="' + n.thumb + '" alt="" loading="lazy" />';
+      }
+      html += '<div class="post-meta"><span class="post-date">' + n.fecha + "</span>";
+      (n.tags || []).forEach(function (t) {
+        html += '<a class="tag" href="noticias.html?tag=' + t + '">' + t.toUpperCase() + "</a>";
+      });
+      html += "</div>";
+      html += '<a class="post-link" href="#' + n.id + '"><h3 class="post-title">' + n.title + "</h3></a>";
+      html += '<p class="post-excerpt">' + n.excerpt + "</p>";
+      html += '<div class="post-body">' + (n.body || "") + "</div>";
+      html += '<a class="post-link read-more" href="#' + n.id + '">Leer más →</a>';
+      html += '<span class="dim">Fuente: <a href="' + n.fuenteLink + '" target="_blank" rel="noopener noreferrer">' + n.fuenteText + "</a></span>";
+      art.innerHTML = html;
+      feed.insertBefore(art, feed.firstChild);
+    });
+  }
+  injectNoticias();
+
   const posts = feed ? Array.from(feed.querySelectorAll(".post")) : [];
   const filterBar = document.getElementById("tagFilter");
   const searchInput = document.getElementById("newsSearch");
